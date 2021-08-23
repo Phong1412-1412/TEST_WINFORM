@@ -163,12 +163,8 @@ namespace TEST_WINFORM
         {
             string sql = query;
             SqlConnection conn = connection();
-            SqlParameter pram = new SqlParameter();
-            pram.ParameterName = "@MaPhongTro";
-            pram.Value = MaPhong;
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add(pram);
             SqlDataReader dataread = cmd.ExecuteReader();
             if (dataread.HasRows)
             {
@@ -479,6 +475,57 @@ namespace TEST_WINFORM
             x = (int)cmd.ExecuteScalar();
             return x;
          }
+
+        //---------------------------------------------------------HIỆN THỊ LIST VIEW DANH SÁCH PHÒNG-----------------------------
+        public static void HienThiListPhong(ListView lsV)
+        {
+            string sql = " SELECT * FROM ALL_TTPT ";
+            SqlConnection conn = connection();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.Text;
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            try
+            {
+                lsV.Items.Clear();
+                lsV.View = View.Details;
+
+                lsV.Columns.Add("Mã Phòng trọ").Width = 100;
+                lsV.Columns.Add("Mã nhà trọ").Width = 100;
+                lsV.Columns.Add("Số tầng").Width = 100;
+                lsV.Columns.Add("Giá thuê").Width = 150;
+                lsV.Columns.Add("Tiền đặt cọc").Width = 150;
+                lsV.Columns.Add("Tiền điện").Width = 150;
+                lsV.Columns.Add("Tiền Nước").Width = 150;
+                lsV.Columns.Add("Trạng thái").Width = 250;
+                lsV.Columns.Add("Mã người thuê").Width = 100;
+                lsV.GridLines = true;
+                lsV.FullRowSelect = true;
+                int stt = 0;
+                foreach (DataRow row in dt.Rows)
+                {
+                    lsV.Items.Add(row[0].ToString());
+                    lsV.Items[stt].SubItems.Add(row[1].ToString());
+                    lsV.Items[stt].SubItems.Add(row[2].ToString());
+                    lsV.Items[stt].SubItems.Add(row[3].ToString());
+                    lsV.Items[stt].SubItems.Add(row[4].ToString());
+                    lsV.Items[stt].SubItems.Add(row[5].ToString());
+                    lsV.Items[stt].SubItems.Add(row[6].ToString());
+                    lsV.Items[stt].SubItems.Add(row[7].ToString());
+                    lsV.Items[stt].SubItems.Add(row[8].ToString());
+                    stt++;
+                }
+
+            }
+            catch (SqlException sx)
+            {
+                MessageBox.Show("Không tìm thấy thông tin: " + sx);
+            }
+            conn.Close();
+
+        }
+
 
     }
 

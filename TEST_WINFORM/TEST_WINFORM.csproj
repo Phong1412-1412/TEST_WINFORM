@@ -92,6 +92,12 @@
     <Compile Include="DanhSachKhachHang.Designer.cs">
       <DependentUpon>DanhSachKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhSachPhongTro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhSachPhongTro.Designer.cs">
+      <DependentUpon>DanhSachPhongTro.cs</DependentUpon>
+    </Compile>
     <Compile Include="dataset_Phieu_Dong_Tien_Phong.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhSachKhachHang.resx">
       <DependentUpon>DanhSachKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhSachPhongTro.resx">
+      <DependentUpon>DanhSachPhongTro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

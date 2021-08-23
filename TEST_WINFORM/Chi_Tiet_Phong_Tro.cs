@@ -34,17 +34,13 @@ namespace TEST_WINFORM
 
         public void HienThiDS_PHieuDongTienPhong()
         {
-            string query = " SELECT pdtp.MaPhieu as N'Mã phiếu',  hd.MaHopDong as N'Mã hợp đồng', pdtp.TrangThai as N'Trạng thái', pt.TienDatCoc as N'Tiền đặt cọc', pt.GiaThue as N'Giá thuê', pt.TienDien as N'Tiền điện',pt.TienNuoc as N'Tiền nước', pdtp.TongTien as N'Tổng tiền', pdtp.Thang as N'Tháng' " +
-                           " FROM Phong_Tro pt, Hop_Dong hd, phieuDongTienPhong pdtp " +
-                            " WHERE pt.MaPhongTro = hd.MaPhongTro AND hd.MaHopDong = pdtp.MaHopDong AND pt.MaPhongTro = "+MP+" ";
+            string query = "select *from dbo.HienThiDS_PHieuDongTienPhong ('"+MP+"')";
             QUERY_DB_QLNT.HienThiDGV(query,dgv_DS_PhieuThiTien);
         }
 
         public void HienThiTTPT()
         {
-            string query = " SELECT pt.MaNhaTro as N'Mã nhà trọ', nt.TenNguoiThue as N'Tên người thuê', pt.SoTang as N'Số tầng', pt.TrangThai as N'Trạng thái', pt.TienDatCoc as N'Tiền đặt cọc', pt.GiaThue as N'Giá thuê', pt.TienDien as N'Tiền điện',pt.TienNuoc as N'Tiền nước' " +
-                           " FROM Phong_Tro pt, Hop_Dong hd, Nguoi_Thue nt " +
-                           " WHERE pt.MaPhongTro = hd.MaPhongTro AND hd.MaNguoiThue = nt.MaNguoiThue AND pt.MaPhongTro = @MaPhongTro ";
+            string query = "select *from dbo.HienTHiThongTinPhong ('"+MP+"') ";
             QUERY_DB_QLNT.HienThiPhongTheoMa(query,MP, txt_MaNhaTro,txt_TenNguoiThu,txt_SoTang,txt_TrangThai,txt_TienDatCoc,txt_TienPhong,txt_TienDien,txt_TienNuoc);
         }
 

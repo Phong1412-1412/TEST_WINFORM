@@ -63,7 +63,7 @@ namespace TEST_WINFORM
             this.panel_ListKH.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel_ListKH.Location = new System.Drawing.Point(0, 288);
             this.panel_ListKH.Name = "panel_ListKH";
-            this.panel_ListKH.Size = new System.Drawing.Size(942, 203);
+            this.panel_ListKH.Size = new System.Drawing.Size(944, 203);
             this.panel_ListKH.TabIndex = 0;
             // 
             // listV_DSKH
@@ -75,7 +75,7 @@ namespace TEST_WINFORM
             this.listV_DSKH.HideSelection = false;
             this.listV_DSKH.Location = new System.Drawing.Point(0, 0);
             this.listV_DSKH.Name = "listV_DSKH";
-            this.listV_DSKH.Size = new System.Drawing.Size(942, 203);
+            this.listV_DSKH.Size = new System.Drawing.Size(944, 203);
             this.listV_DSKH.TabIndex = 0;
             this.listV_DSKH.UseCompatibleStateImageBehavior = false;
             this.listV_DSKH.View = System.Windows.Forms.View.List;
@@ -111,7 +111,7 @@ namespace TEST_WINFORM
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label3.Location = new System.Drawing.Point(13, 80);
+            this.label3.Location = new System.Drawing.Point(14, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 16);
             this.label3.TabIndex = 4;
@@ -121,7 +121,7 @@ namespace TEST_WINFORM
             // 
             this.txt_MaNguoiThue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_MaNguoiThue.Enabled = false;
-            this.txt_MaNguoiThue.Location = new System.Drawing.Point(127, 78);
+            this.txt_MaNguoiThue.Location = new System.Drawing.Point(128, 78);
             this.txt_MaNguoiThue.Name = "txt_MaNguoiThue";
             this.txt_MaNguoiThue.Size = new System.Drawing.Size(64, 20);
             this.txt_MaNguoiThue.TabIndex = 5;
@@ -130,7 +130,7 @@ namespace TEST_WINFORM
             // txt_TenNguoiThue
             // 
             this.txt_TenNguoiThue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_TenNguoiThue.Location = new System.Drawing.Point(127, 128);
+            this.txt_TenNguoiThue.Location = new System.Drawing.Point(128, 128);
             this.txt_TenNguoiThue.Name = "txt_TenNguoiThue";
             this.txt_TenNguoiThue.Size = new System.Drawing.Size(150, 20);
             this.txt_TenNguoiThue.TabIndex = 7;
@@ -141,7 +141,7 @@ namespace TEST_WINFORM
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label4.Location = new System.Drawing.Point(13, 130);
+            this.label4.Location = new System.Drawing.Point(14, 130);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 16);
             this.label4.TabIndex = 6;
@@ -150,7 +150,7 @@ namespace TEST_WINFORM
             // txt_SDT
             // 
             this.txt_SDT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_SDT.Location = new System.Drawing.Point(127, 179);
+            this.txt_SDT.Location = new System.Drawing.Point(128, 179);
             this.txt_SDT.Name = "txt_SDT";
             this.txt_SDT.Size = new System.Drawing.Size(150, 20);
             this.txt_SDT.TabIndex = 9;
@@ -162,7 +162,7 @@ namespace TEST_WINFORM
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label5.Location = new System.Drawing.Point(13, 181);
+            this.label5.Location = new System.Drawing.Point(14, 181);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 16);
             this.label5.TabIndex = 8;
@@ -171,7 +171,7 @@ namespace TEST_WINFORM
             // txt_CMND
             // 
             this.txt_CMND.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_CMND.Location = new System.Drawing.Point(413, 80);
+            this.txt_CMND.Location = new System.Drawing.Point(414, 80);
             this.txt_CMND.Name = "txt_CMND";
             this.txt_CMND.Size = new System.Drawing.Size(150, 20);
             this.txt_CMND.TabIndex = 11;
@@ -183,7 +183,7 @@ namespace TEST_WINFORM
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label6.Location = new System.Drawing.Point(299, 82);
+            this.label6.Location = new System.Drawing.Point(300, 82);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 16);
             this.label6.TabIndex = 10;
@@ -195,7 +195,7 @@ namespace TEST_WINFORM
             this.lbl_GioiTinh.AutoSize = true;
             this.lbl_GioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_GioiTinh.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lbl_GioiTinh.Location = new System.Drawing.Point(299, 132);
+            this.lbl_GioiTinh.Location = new System.Drawing.Point(300, 132);
             this.lbl_GioiTinh.Name = "lbl_GioiTinh";
             this.lbl_GioiTinh.Size = new System.Drawing.Size(68, 16);
             this.lbl_GioiTinh.TabIndex = 12;
@@ -207,7 +207,7 @@ namespace TEST_WINFORM
             this.lbl_NgaySinh.AutoSize = true;
             this.lbl_NgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_NgaySinh.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lbl_NgaySinh.Location = new System.Drawing.Point(299, 179);
+            this.lbl_NgaySinh.Location = new System.Drawing.Point(300, 179);
             this.lbl_NgaySinh.Name = "lbl_NgaySinh";
             this.lbl_NgaySinh.Size = new System.Drawing.Size(81, 16);
             this.lbl_NgaySinh.TabIndex = 14;
@@ -216,7 +216,7 @@ namespace TEST_WINFORM
             // txt_DiaChi
             // 
             this.txt_DiaChi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_DiaChi.Location = new System.Drawing.Point(665, 78);
+            this.txt_DiaChi.Location = new System.Drawing.Point(666, 78);
             this.txt_DiaChi.Multiline = true;
             this.txt_DiaChi.Name = "txt_DiaChi";
             this.txt_DiaChi.Size = new System.Drawing.Size(265, 121);
@@ -228,7 +228,7 @@ namespace TEST_WINFORM
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label9.Location = new System.Drawing.Point(604, 84);
+            this.label9.Location = new System.Drawing.Point(605, 84);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 16);
             this.label9.TabIndex = 16;
@@ -263,7 +263,7 @@ namespace TEST_WINFORM
             this.btn_XemPhongThue.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_XemPhongThue.Image = global::TEST_WINFORM.Properties.Resources.see;
             this.btn_XemPhongThue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_XemPhongThue.Location = new System.Drawing.Point(425, 250);
+            this.btn_XemPhongThue.Location = new System.Drawing.Point(427, 250);
             this.btn_XemPhongThue.Name = "btn_XemPhongThue";
             this.btn_XemPhongThue.Size = new System.Drawing.Size(138, 32);
             this.btn_XemPhongThue.TabIndex = 21;
@@ -281,7 +281,7 @@ namespace TEST_WINFORM
             this.btn_XoaNguoiThue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_XoaNguoiThue.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_XoaNguoiThue.Image = global::TEST_WINFORM.Properties.Resources.delete;
-            this.btn_XoaNguoiThue.Location = new System.Drawing.Point(848, 250);
+            this.btn_XoaNguoiThue.Location = new System.Drawing.Point(850, 250);
             this.btn_XoaNguoiThue.Name = "btn_XoaNguoiThue";
             this.btn_XoaNguoiThue.Size = new System.Drawing.Size(81, 32);
             this.btn_XoaNguoiThue.TabIndex = 20;
@@ -299,7 +299,7 @@ namespace TEST_WINFORM
             this.btn_SuaNguoiThue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SuaNguoiThue.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_SuaNguoiThue.Image = global::TEST_WINFORM.Properties.Resources.edit;
-            this.btn_SuaNguoiThue.Location = new System.Drawing.Point(734, 250);
+            this.btn_SuaNguoiThue.Location = new System.Drawing.Point(736, 250);
             this.btn_SuaNguoiThue.Name = "btn_SuaNguoiThue";
             this.btn_SuaNguoiThue.Size = new System.Drawing.Size(99, 32);
             this.btn_SuaNguoiThue.TabIndex = 19;
@@ -318,7 +318,7 @@ namespace TEST_WINFORM
             this.btn_ThemNguoiThue.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_ThemNguoiThue.Image = global::TEST_WINFORM.Properties.Resources.add;
             this.btn_ThemNguoiThue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ThemNguoiThue.Location = new System.Drawing.Point(581, 250);
+            this.btn_ThemNguoiThue.Location = new System.Drawing.Point(583, 250);
             this.btn_ThemNguoiThue.Name = "btn_ThemNguoiThue";
             this.btn_ThemNguoiThue.Size = new System.Drawing.Size(138, 32);
             this.btn_ThemNguoiThue.TabIndex = 18;
@@ -336,7 +336,7 @@ namespace TEST_WINFORM
             this.btn_QuyLai.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_QuyLai.Image = global::TEST_WINFORM.Properties.Resources.back24x24;
             this.btn_QuyLai.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_QuyLai.Location = new System.Drawing.Point(804, 12);
+            this.btn_QuyLai.Location = new System.Drawing.Point(806, 12);
             this.btn_QuyLai.Name = "btn_QuyLai";
             this.btn_QuyLai.Size = new System.Drawing.Size(126, 39);
             this.btn_QuyLai.TabIndex = 3;
@@ -349,7 +349,7 @@ namespace TEST_WINFORM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 491);
+            this.ClientSize = new System.Drawing.Size(944, 491);
             this.Controls.Add(this.dtime_NgaySinh);
             this.Controls.Add(this.cbb_GioiTinh);
             this.Controls.Add(this.btn_XemPhongThue);

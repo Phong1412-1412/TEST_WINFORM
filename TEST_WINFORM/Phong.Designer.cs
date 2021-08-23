@@ -233,6 +233,7 @@ namespace TEST_WINFORM
             this.btn_Phong.TabIndex = 11;
             this.btn_Phong.Text = "Phòng";
             this.btn_Phong.UseVisualStyleBackColor = false;
+            this.btn_Phong.Click += new System.EventHandler(this.btn_Phong_Click);
             // 
             // btn_NguoiThue
             // 

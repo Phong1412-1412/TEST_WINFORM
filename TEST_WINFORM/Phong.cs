@@ -355,7 +355,12 @@ namespace TEST_WINFORM
                 HienThiTheoNhaTro(manha);
             }
         }
+
+        private void btn_Phong_Click(object sender, EventArgs e)
+        {
+            DanhSachPhongTro LISTPT = new DanhSachPhongTro();
+            LISTPT.Show();
+        }
     }
     
 }
-//test git ooalalal
