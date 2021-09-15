@@ -18,6 +18,10 @@ namespace TEST_WINFORM
         }
         int MP = 0;
         int MaPhieu;
+        string TenNguoiThue;
+        int TienDien;
+        int TienNuoc;
+        int TienPhong;
         public Chi_Tiet_Phong_Tro(int MaPhong)
         {
             MP = MaPhong;
@@ -82,6 +86,16 @@ namespace TEST_WINFORM
                 MessageBox.Show("Vui long chon phieu thu tien muon in","Thong bao");
             }
            
+        }
+
+        private void btn_ThemPT_Click(object sender, EventArgs e)
+        {
+            TienDien = int.Parse(txt_TienDien.Text);
+            TienNuoc = int.Parse(txt_TienNuoc.Text);
+            TienPhong = int.Parse(txt_TienPhong.Text);
+            TenNguoiThue = txt_TenNguoiThu.Text;
+            Tao_PhieuDongTienPhong Tao_PDTP = new Tao_PhieuDongTienPhong(this,MP,TenNguoiThue,TienDien,TienNuoc,TienPhong);
+            Tao_PDTP.Show();
         }
     }
 }

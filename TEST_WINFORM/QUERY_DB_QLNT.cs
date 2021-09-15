@@ -476,6 +476,16 @@ namespace TEST_WINFORM
             return x;
          }
 
+        public static int MaHopDong_PT(int i)
+        {
+            int x;
+            string qurey = "Select dbo.LayMaHopDong_PT('" + i + "')";
+            SqlConnection conn = connection();
+            SqlCommand cmd = new SqlCommand(qurey, conn);
+            x = (int)cmd.ExecuteScalar();
+            return x;
+        }
+
         //---------------------------------------------------------HIỆN THỊ LIST VIEW DANH SÁCH PHÒNG-----------------------------
         public static void HienThiListPhong(ListView lsV)
         {
@@ -525,8 +535,40 @@ namespace TEST_WINFORM
             conn.Close();
 
         }
+        //---------------------------------END:HIỆN THỊ LIST VIEW DANH SÁCH PHÒNG---------------------
+
+        //----------------------------------THÊM/SỬA/XÓA/PHÒNG TRỌ-------------------------------------
 
 
+        //-----------------------------END:THÊM/SỬA/XÓA/PHÒNG TRỌ--------------------------------------
+
+        //---------------------------------//THÊM/SỬA//Xóa--------------TABLE: Phiếu thu
+
+        public static void ThemPhieuThuTienPhong(Phieu_Dong_Tien_Phong PDTP)
+        {
+            string query = "INSERT INTO  PhieuDongTienPhong values(@MaHopDong,@TienDien,@TienNuoc,@TienPhong,@TongTien,@TrangThai,@Thang)";
+            SqlConnection conn = connection();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@MaHopDong", SqlDbType.Int).Value = PDTP.MaHopDong;
+            cmd.Parameters.Add("@TienDien", SqlDbType.Int).Value = PDTP.TienDien;
+            cmd.Parameters.Add("@TienNuoc", SqlDbType.Float).Value = PDTP.TienNuoc;
+            cmd.Parameters.Add("@TienPhong", SqlDbType.Float).Value = PDTP.TienPhong;
+            cmd.Parameters.Add("@TongTien", SqlDbType.Float).Value = PDTP.TongTien;
+            cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = PDTP.TrangThai;
+            cmd.Parameters.Add("@Thang", SqlDbType.NVarChar).Value = PDTP.Thang;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Thêm phiếu thu thành công thành công", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Thêm thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
+            }
+
+        }
+        //------------------------------------END:TABLE Phiếu Thu-----------------------------------------
     }
 
 }

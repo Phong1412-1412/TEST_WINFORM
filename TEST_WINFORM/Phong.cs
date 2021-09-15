@@ -203,7 +203,7 @@ namespace TEST_WINFORM
             query = "select  MaPhongTro, GiaThue, TrangThai " + "FROM Phong_Tro " + "WHERE MaPhongTro = @MaPhong AND TrangThai = N'Trống'"
                           ;
             this.panel_PhongChiTiet.Controls.Clear();
-            ThongTinPhong(query, QUERY_DB_QLNT.TongPhongTRONG(), i);
+            ThongTinPhong(query,QUERY_DB_QLNT.TongPhongTRONG(), i);
         }
 
         private void HienThiPhongThue()
@@ -275,7 +275,7 @@ namespace TEST_WINFORM
                    "WHERE hd.MaPhongTro = @MaPhong AND pdtp.TrangThai = N'Chưa ĐÓng' AND pdtp.MaHopDong = hd.MaHopDong";
             ;
             this.panel_PhongChiTiet.Controls.Clear();
-            ThongTinPhong(query, QUERY_DB_QLNT.TongPhongDaTraTien(), i);
+            ThongTinPhong(query, QUERY_DB_QLNT.TongPhongChuaTraTien(), i);
         }
         //----------------------------------------------END------------------------------------------------------
 
@@ -360,6 +360,11 @@ namespace TEST_WINFORM
         {
             DanhSachPhongTro LISTPT = new DanhSachPhongTro();
             LISTPT.Show();
+        }
+
+        private void panel_DSPhong_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     

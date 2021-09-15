@@ -76,6 +76,7 @@ namespace TEST_WINFORM
             this.panel_DSPhong.Name = "panel_DSPhong";
             this.panel_DSPhong.Size = new System.Drawing.Size(927, 173);
             this.panel_DSPhong.TabIndex = 0;
+            this.panel_DSPhong.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_DSPhong_Paint);
             // 
             // lbl_PhongDangChoThue
             // 

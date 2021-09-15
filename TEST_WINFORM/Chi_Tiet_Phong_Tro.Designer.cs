@@ -567,6 +567,7 @@ namespace TEST_WINFORM
             this.btn_ThemPT.Text = "Thêm phiếu thu";
             this.btn_ThemPT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_ThemPT.UseVisualStyleBackColor = false;
+            this.btn_ThemPT.Click += new System.EventHandler(this.btn_ThemPT_Click);
             // 
             // btn_QuyLai
             // 
