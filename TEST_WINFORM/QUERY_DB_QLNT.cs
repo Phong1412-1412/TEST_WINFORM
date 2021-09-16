@@ -54,7 +54,7 @@ namespace TEST_WINFORM
                  MP.Text += ma;
                  Gia.Text += gia;   
                  i++;
-                 if (i > TongPhongINT())
+                 if (i >    INT())
                  {
                      i = 1;
                  }
@@ -85,11 +85,21 @@ namespace TEST_WINFORM
             x = (int)cmd.ExecuteScalar();
             return x;
         }
+
+        public static int MaPhongLN() {
+            int x;
+            string qr = "select dbo. LayMaPhongLN()";
+
+            SqlConnection conn = connection();
+            SqlCommand cmd = new SqlCommand(qr, conn);
+            x = (int)cmd.ExecuteScalar();
+            return x;
+        }
         //-----------------------------HÀM DÙNG ĐỂ HIỂN THỊ PHÒNG THEO YC---------------------------------------
         public static void HienThiPhong_YC(string qr, Label MP, Label TrangThai, Label Gia, Button Tra, Button Sua, Button Xem, Panel Phong)
         {
             // Kiếm tra i có vượt quá số phòng hay không nếu vượt qua thì ta gán i = 1 và gọi lại hàm(Đệ quy)
-            if (i > TongPhongINT())
+            if (i > MaPhongLN())
             {
                 i = 1;
                 HienThiPhong_YC(qr, MP, TrangThai, Gia, Tra, Sua, Xem, Phong);
@@ -107,7 +117,7 @@ namespace TEST_WINFORM
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.Add(pram);
                 SqlDataReader dataread = cmd.ExecuteReader();
-                if (i <= TongPhongINT())
+                if (i <= MaPhongLN())
                 {
                     // nếu có tồn tại một nào đó hàng thì thực hiện gán và tăng i lên 1 đơn vị
                     if (dataread.HasRows)
@@ -538,6 +548,29 @@ namespace TEST_WINFORM
         //---------------------------------END:HIỆN THỊ LIST VIEW DANH SÁCH PHÒNG---------------------
 
         //----------------------------------THÊM/SỬA/XÓA/PHÒNG TRỌ-------------------------------------
+
+
+        //-----------------------------END:THÊM/SỬA/XÓA/NHÀ TRỌ--------------------------------------
+        public static void Them_Nha_tro(int MaChuTro, string DiaChi_NhaTro)
+        {
+            string query = "INSERT INTO Nha_Tro values(@MaChuTro, @DiaChi)";
+            SqlConnection conn = connection();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@MaChuTro", SqlDbType.Int).Value = MaChuTro;
+            cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = DiaChi_NhaTro;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Thêm nhà trọ thành công", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show("Thêm mới nhà trọ thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
+            }
+        }
+
+        //----------------------------------THÊM/SỬA/XÓA/NHÀ TRỌ-------------------------------------
 
 
         //-----------------------------END:THÊM/SỬA/XÓA/PHÒNG TRỌ--------------------------------------

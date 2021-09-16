@@ -36,8 +36,6 @@ namespace TEST_WINFORM
             this.label2 = new System.Windows.Forms.Label();
             this.cbb_NhaTro = new System.Windows.Forms.ComboBox();
             this.lbl_TinhTrangPhongTheoNhaTro = new System.Windows.Forms.Label();
-            this.btnXoaNha = new System.Windows.Forms.Button();
-            this.btn_SuaQL = new System.Windows.Forms.Button();
             this.btn_ThemPhong = new System.Windows.Forms.Button();
             this.btn_ThemPhongNhanh = new System.Windows.Forms.Button();
             this.lbl_CountPhong = new System.Windows.Forms.Label();
@@ -45,12 +43,12 @@ namespace TEST_WINFORM
             this.btn_Phong = new System.Windows.Forms.Button();
             this.btn_NguoiThue = new System.Windows.Forms.Button();
             this.lbl_TongPhong = new System.Windows.Forms.Label();
-            this.btn_TimKiem = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cbb_TrangThaiPhieuThuTien = new System.Windows.Forms.ComboBox();
             this.cbb_TrangThaiPhong = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_PhongChiTiet = new System.Windows.Forms.Panel();
+            this.btn_TimKiem = new System.Windows.Forms.Button();
             this.panel_DSPhong.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -102,8 +100,6 @@ namespace TEST_WINFORM
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbb_NhaTro);
             this.groupBox1.Controls.Add(this.lbl_TinhTrangPhongTheoNhaTro);
-            this.groupBox1.Controls.Add(this.btnXoaNha);
-            this.groupBox1.Controls.Add(this.btn_SuaQL);
             this.groupBox1.Controls.Add(this.btn_ThemPhong);
             this.groupBox1.Controls.Add(this.btn_ThemPhongNhanh);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -142,34 +138,6 @@ namespace TEST_WINFORM
             this.lbl_TinhTrangPhongTheoNhaTro.TabIndex = 13;
             this.lbl_TinhTrangPhongTheoNhaTro.Text = "Còn trống:  || Đã xho thuê:  || còn nợ tiền: ";
             // 
-            // btnXoaNha
-            // 
-            this.btnXoaNha.AutoSize = true;
-            this.btnXoaNha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnXoaNha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoaNha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaNha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnXoaNha.Location = new System.Drawing.Point(831, 48);
-            this.btnXoaNha.Name = "btnXoaNha";
-            this.btnXoaNha.Size = new System.Drawing.Size(81, 25);
-            this.btnXoaNha.TabIndex = 15;
-            this.btnXoaNha.Text = "Xóa nhà";
-            this.btnXoaNha.UseVisualStyleBackColor = false;
-            // 
-            // btn_SuaQL
-            // 
-            this.btn_SuaQL.AutoSize = true;
-            this.btn_SuaQL.BackColor = System.Drawing.Color.Green;
-            this.btn_SuaQL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_SuaQL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SuaQL.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_SuaQL.Location = new System.Drawing.Point(744, 48);
-            this.btn_SuaQL.Name = "btn_SuaQL";
-            this.btn_SuaQL.Size = new System.Drawing.Size(81, 25);
-            this.btn_SuaQL.TabIndex = 14;
-            this.btn_SuaQL.Text = "Sửa nhà";
-            this.btn_SuaQL.UseVisualStyleBackColor = false;
-            // 
             // btn_ThemPhong
             // 
             this.btn_ThemPhong.AutoSize = true;
@@ -177,7 +145,7 @@ namespace TEST_WINFORM
             this.btn_ThemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ThemPhong.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_ThemPhong.Location = new System.Drawing.Point(649, 48);
+            this.btn_ThemPhong.Location = new System.Drawing.Point(820, 48);
             this.btn_ThemPhong.Name = "btn_ThemPhong";
             this.btn_ThemPhong.Size = new System.Drawing.Size(89, 25);
             this.btn_ThemPhong.TabIndex = 13;
@@ -191,7 +159,7 @@ namespace TEST_WINFORM
             this.btn_ThemPhongNhanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemPhongNhanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ThemPhongNhanh.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_ThemPhongNhanh.Location = new System.Drawing.Point(515, 48);
+            this.btn_ThemPhongNhanh.Location = new System.Drawing.Point(686, 48);
             this.btn_ThemPhongNhanh.Name = "btn_ThemPhongNhanh";
             this.btn_ThemPhongNhanh.Size = new System.Drawing.Size(128, 25);
             this.btn_ThemPhongNhanh.TabIndex = 12;
@@ -220,6 +188,7 @@ namespace TEST_WINFORM
             this.btn_ThemNha.TabIndex = 12;
             this.btn_ThemNha.Text = "Thêm nhà";
             this.btn_ThemNha.UseVisualStyleBackColor = false;
+            this.btn_ThemNha.Click += new System.EventHandler(this.btn_ThemNha_Click);
             // 
             // btn_Phong
             // 
@@ -259,21 +228,6 @@ namespace TEST_WINFORM
             this.lbl_TongPhong.Size = new System.Drawing.Size(71, 13);
             this.lbl_TongPhong.TabIndex = 9;
             this.lbl_TongPhong.Text = "Tổng phong: ";
-            // 
-            // btn_TimKiem
-            // 
-            this.btn_TimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_TimKiem.FlatAppearance.BorderSize = 0;
-            this.btn_TimKiem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_TimKiem.Image = global::TEST_WINFORM.Properties.Resources._17853935111558096454_16;
-            this.btn_TimKiem.Location = new System.Drawing.Point(542, 20);
-            this.btn_TimKiem.Name = "btn_TimKiem";
-            this.btn_TimKiem.Size = new System.Drawing.Size(99, 31);
-            this.btn_TimKiem.TabIndex = 4;
-            this.btn_TimKiem.Text = "Tìm kiếm";
-            this.btn_TimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_TimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_TimKiem.UseVisualStyleBackColor = false;
             // 
             // textBox1
             // 
@@ -331,6 +285,21 @@ namespace TEST_WINFORM
             this.panel_PhongChiTiet.Size = new System.Drawing.Size(927, 465);
             this.panel_PhongChiTiet.TabIndex = 3;
             // 
+            // btn_TimKiem
+            // 
+            this.btn_TimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_TimKiem.FlatAppearance.BorderSize = 0;
+            this.btn_TimKiem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_TimKiem.Image = global::TEST_WINFORM.Properties.Resources._17853935111558096454_16;
+            this.btn_TimKiem.Location = new System.Drawing.Point(542, 20);
+            this.btn_TimKiem.Name = "btn_TimKiem";
+            this.btn_TimKiem.Size = new System.Drawing.Size(99, 31);
+            this.btn_TimKiem.TabIndex = 4;
+            this.btn_TimKiem.Text = "Tìm kiếm";
+            this.btn_TimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_TimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_TimKiem.UseVisualStyleBackColor = false;
+            // 
             // Phong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,8 +334,6 @@ namespace TEST_WINFORM
         private System.Windows.Forms.Label lbl_TongPhong;
         private System.Windows.Forms.Panel panel_PhongChiTiet;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnXoaNha;
-        private System.Windows.Forms.Button btn_SuaQL;
         private System.Windows.Forms.Button btn_ThemPhong;
         private System.Windows.Forms.Button btn_ThemPhongNhanh;
         private System.Windows.Forms.Label lbl_TinhTrangPhongTheoNhaTro;

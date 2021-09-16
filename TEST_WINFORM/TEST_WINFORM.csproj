@@ -153,6 +153,12 @@
     <Compile Include="ThemPhieuDongTienPhong.Designer.cs">
       <DependentUpon>ThemPhieuDongTienPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Them_Nha_Tro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Them_Nha_Tro.Designer.cs">
+      <DependentUpon>Them_Nha_Tro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Thống_Kê.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ThemPhieuDongTienPhong.resx">
       <DependentUpon>ThemPhieuDongTienPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Them_Nha_Tro.resx">
+      <DependentUpon>Them_Nha_Tro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Thống_Kê.resx">
       <DependentUpon>Thống_Kê.cs</DependentUpon>

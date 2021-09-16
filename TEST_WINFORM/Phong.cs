@@ -366,6 +366,12 @@ namespace TEST_WINFORM
         {
 
         }
+
+        private void btn_ThemNha_Click(object sender, EventArgs e)
+        {
+            Them_Nha_Tro TNT = new Them_Nha_Tro(this);
+            TNT.Show();
+        }
     }
     
 }
