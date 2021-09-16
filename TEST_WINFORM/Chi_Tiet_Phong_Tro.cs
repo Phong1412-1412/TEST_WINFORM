@@ -52,7 +52,7 @@ namespace TEST_WINFORM
         {
             int vt = e.RowIndex;
           
-            if(vt <= dgv_DS_PhieuThiTien.Rows.Count && vt >=0 )
+            if(vt < dgv_DS_PhieuThiTien.Rows.Count - 1 && vt >=0 )
             {
                 DataGridViewRow Chon = this.dgv_DS_PhieuThiTien.Rows[vt];
                 txt_MaPhieu.Text = Chon.Cells[0].Value.ToString();
@@ -96,6 +96,39 @@ namespace TEST_WINFORM
             TenNguoiThue = txt_TenNguoiThu.Text;
             Tao_PhieuDongTienPhong Tao_PDTP = new Tao_PhieuDongTienPhong(this,MP,TenNguoiThue,TienDien,TienNuoc,TienPhong);
             Tao_PDTP.Show();
+        }
+
+        private void btn_ChinhPT_Click(object sender, EventArgs e)
+        {
+            if(txt_TrangThaiPT.Text == "Đã đóng" || txt_TrangThaiPT.Text == "Chưa đóng")
+            {
+                if (MessageBox.Show("Bạn có chắc muốn cấp nhập k???", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    QUERY_DB_QLNT.CapNhat_PDTP(txt_TrangThaiPT.Text, MaPhieu);
+                    this.HienThiDS_PHieuDongTienPhong();
+                }    
+               
+            }
+            else
+            {
+                MessageBox.Show("Trạng thái chỉ chó thể là Đã đóng hoặc Chưa Đóng","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                txt_TrangThaiPT.Text = "";
+            }
+        }
+
+        private void btn_XoaPT_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn Xóa phiếu thu này k???", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                QUERY_DB_QLNT.Xoa_PDTP( MaPhieu);
+                this.HienThiDS_PHieuDongTienPhong();
+            }
+        }
+
+        private void btn_XemNguoiThue_Click(object sender, EventArgs e)
+        {
+            DanhSachKhachHang DSKH = new DanhSachKhachHang();
+            DSKH.Show();
         }
     }
 }

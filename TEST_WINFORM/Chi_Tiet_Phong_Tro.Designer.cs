@@ -134,10 +134,11 @@ namespace TEST_WINFORM
             // 
             // dgv_DS_PhieuThiTien
             // 
-            this.dgv_DS_PhieuThiTien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DS_PhieuThiTien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_DS_PhieuThiTien.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_DS_PhieuThiTien.Location = new System.Drawing.Point(0, -5);
             this.dgv_DS_PhieuThiTien.Name = "dgv_DS_PhieuThiTien";
+            this.dgv_DS_PhieuThiTien.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgv_DS_PhieuThiTien.Size = new System.Drawing.Size(1042, 150);
             this.dgv_DS_PhieuThiTien.TabIndex = 0;
             this.dgv_DS_PhieuThiTien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DS_PhieuThiTien_CellClick);
@@ -515,6 +516,7 @@ namespace TEST_WINFORM
             this.btn_XemNguoiThue.Text = "Xem người thuê";
             this.btn_XemNguoiThue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_XemNguoiThue.UseVisualStyleBackColor = false;
+            this.btn_XemNguoiThue.Click += new System.EventHandler(this.btn_XemNguoiThue_Click);
             // 
             // btn_XoaPT
             // 
@@ -532,6 +534,7 @@ namespace TEST_WINFORM
             this.btn_XoaPT.Text = "Xóa phiếu thu";
             this.btn_XoaPT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_XoaPT.UseVisualStyleBackColor = false;
+            this.btn_XoaPT.Click += new System.EventHandler(this.btn_XoaPT_Click);
             // 
             // btn_ChinhPT
             // 
@@ -549,6 +552,7 @@ namespace TEST_WINFORM
             this.btn_ChinhPT.Text = "Chỉnh phiếu thu";
             this.btn_ChinhPT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_ChinhPT.UseVisualStyleBackColor = false;
+            this.btn_ChinhPT.Click += new System.EventHandler(this.btn_ChinhPT_Click);
             // 
             // btn_ThemPT
             // 

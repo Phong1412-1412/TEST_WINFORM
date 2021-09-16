@@ -312,6 +312,7 @@ namespace TEST_WINFORM
             this.btn_QuyLai.Text = "Quay lại";
             this.btn_QuyLai.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_QuyLai.UseVisualStyleBackColor = false;
+            this.btn_QuyLai.Click += new System.EventHandler(this.btn_QuyLai_Click);
             // 
             // txt_MaNguoiThue
             // 

@@ -285,11 +285,11 @@ namespace TEST_WINFORM
                 lsV.Items.Clear();
                 lsV.View = View.Details;
 
-                lsV.Columns.Add("Mã ngưới thuê").Width = 50;
+                lsV.Columns.Add("Mã ngưới thuê").Width = 100;
                 lsV.Columns.Add("Tên ngưới thuê").Width = 150;
                 lsV.Columns.Add("Số điện thoại").Width = 150;
                 lsV.Columns.Add("CMND").Width = 150;
-                lsV.Columns.Add("Giới Tính").Width = 70; 
+                lsV.Columns.Add("Giới Tính").Width = 100; 
                 lsV.Columns.Add("Ngày Sinh").Width = 150;
                 lsV.Columns.Add("Địa chỉ").Width = 250;
                 lsV.GridLines = true;
@@ -501,9 +501,9 @@ namespace TEST_WINFORM
                 lsV.Items.Clear();
                 lsV.View = View.Details;
 
-                lsV.Columns.Add("Mã Phòng trọ").Width = 100;
-                lsV.Columns.Add("Mã nhà trọ").Width = 100;
-                lsV.Columns.Add("Số tầng").Width = 100;
+                lsV.Columns.Add("Mã Phòng trọ").Width = 150;
+                lsV.Columns.Add("Mã nhà trọ").Width = 150;
+                lsV.Columns.Add("Số tầng").Width = 150;
                 lsV.Columns.Add("Giá thuê").Width = 150;
                 lsV.Columns.Add("Tiền đặt cọc").Width = 150;
                 lsV.Columns.Add("Tiền điện").Width = 150;
@@ -567,6 +567,43 @@ namespace TEST_WINFORM
                 MessageBox.Show("Thêm thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
             }
 
+        }
+
+        public static void CapNhat_PDTP(string trangthai, int MaPhieu)
+        {
+            string query = "UPDATE PhieuDongTienPhong set TrangThai = @TrangThai where MaPhieu = @MaPhieu";
+            SqlConnection conn = connection();
+            SqlCommand cmd = new SqlCommand(query,conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = trangthai;
+            cmd.Parameters.Add("@MaPhieu", SqlDbType.Int).Value = MaPhieu;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("sửa phiếu thu thành công thành công", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("sửa thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
+            }
+        }
+
+        public static void Xoa_PDTP(int MaPhieu)
+        {
+            string query = "DELETE PhieuDongTienPhong where MaPhieu = @MaPhieu";
+            SqlConnection conn = connection();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@MaPhieu", SqlDbType.Int).Value = MaPhieu;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Xóa phiếu thu thành công thành công", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Xóa thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
+            }
         }
         //------------------------------------END:TABLE Phiếu Thu-----------------------------------------
     }

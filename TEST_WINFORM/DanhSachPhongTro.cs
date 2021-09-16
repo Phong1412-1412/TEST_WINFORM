@@ -43,5 +43,10 @@ namespace TEST_WINFORM
                 txt_MaNguoiThue.Text = Item.SubItems[8].Text;
             }
         }
+
+        private void btn_QuyLai_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+        }
     }
 }
