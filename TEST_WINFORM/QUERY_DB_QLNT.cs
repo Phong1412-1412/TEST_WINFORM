@@ -548,9 +548,6 @@ namespace TEST_WINFORM
         //---------------------------------END:HIỆN THỊ LIST VIEW DANH SÁCH PHÒNG---------------------
 
         //----------------------------------THÊM/SỬA/XÓA/PHÒNG TRỌ-------------------------------------
-
-
-        //-----------------------------END:THÊM/SỬA/XÓA/NHÀ TRỌ--------------------------------------
         public static void Them_Nha_tro(int MaChuTro, string DiaChi_NhaTro)
         {
             string query = "INSERT INTO Nha_Tro values(@MaChuTro, @DiaChi)";
@@ -564,13 +561,33 @@ namespace TEST_WINFORM
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Thêm nhà trọ thành công", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 MessageBox.Show("Thêm mới nhà trọ thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
             }
         }
 
-        //----------------------------------THÊM/SỬA/XÓA/NHÀ TRỌ-------------------------------------
+
+        public static void Xoa_Nha_Tro(int MaNhaTro)
+        {
+            string query = "EXEC dbo.XoaNhaTro @MaNhaTro";
+            SqlConnection conn = connection();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@MaNhaTro", SqlDbType.Int).Value = MaNhaTro;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Xóa nhà trọ thành công", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Xóa nhà trọ thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
+            }
+        }
+
+        //-----------------------------END:THÊM/SỬA/XÓA/NHÀ TRỌ--------------------------------------
+
 
 
         //-----------------------------END:THÊM/SỬA/XÓA/PHÒNG TRỌ--------------------------------------

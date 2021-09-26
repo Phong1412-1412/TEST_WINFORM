@@ -372,6 +372,17 @@ namespace TEST_WINFORM
             Them_Nha_Tro TNT = new Them_Nha_Tro(this);
             TNT.Show();
         }
+
+        private void btn_XoaNha_Click(object sender, EventArgs e)
+        {
+            int MaNha = int.Parse(cbb_NhaTro.SelectedValue.ToString());
+            if(MessageBox.Show("Hành động này có thể làm mật một lượng lơn dữ liệu. Bạn có chắc chắn muốn xóa","Cảnh báo",MessageBoxButtons.YesNo,MessageBoxIcon.Warning)== DialogResult.Yes)
+            {
+                QUERY_DB_QLNT.Xoa_Nha_Tro(MaNha);
+                HienThi_NhaTro();
+                HienThiTheoNhaTro((int)cbb_NhaTro.SelectedValue);
+            }
+        }
     }
     
 }

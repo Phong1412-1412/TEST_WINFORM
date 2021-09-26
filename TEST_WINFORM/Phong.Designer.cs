@@ -43,12 +43,13 @@ namespace TEST_WINFORM
             this.btn_Phong = new System.Windows.Forms.Button();
             this.btn_NguoiThue = new System.Windows.Forms.Button();
             this.lbl_TongPhong = new System.Windows.Forms.Label();
+            this.btn_TimKiem = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cbb_TrangThaiPhieuThuTien = new System.Windows.Forms.ComboBox();
             this.cbb_TrangThaiPhong = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_PhongChiTiet = new System.Windows.Forms.Panel();
-            this.btn_TimKiem = new System.Windows.Forms.Button();
+            this.btn_XoaNha = new System.Windows.Forms.Button();
             this.panel_DSPhong.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +98,7 @@ namespace TEST_WINFORM
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.btn_XoaNha);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbb_NhaTro);
             this.groupBox1.Controls.Add(this.lbl_TinhTrangPhongTheoNhaTro);
@@ -229,6 +231,21 @@ namespace TEST_WINFORM
             this.lbl_TongPhong.TabIndex = 9;
             this.lbl_TongPhong.Text = "Tổng phong: ";
             // 
+            // btn_TimKiem
+            // 
+            this.btn_TimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_TimKiem.FlatAppearance.BorderSize = 0;
+            this.btn_TimKiem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_TimKiem.Image = global::TEST_WINFORM.Properties.Resources._17853935111558096454_16;
+            this.btn_TimKiem.Location = new System.Drawing.Point(542, 20);
+            this.btn_TimKiem.Name = "btn_TimKiem";
+            this.btn_TimKiem.Size = new System.Drawing.Size(99, 31);
+            this.btn_TimKiem.TabIndex = 4;
+            this.btn_TimKiem.Text = "Tìm kiếm";
+            this.btn_TimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_TimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_TimKiem.UseVisualStyleBackColor = false;
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(379, 26);
@@ -285,20 +302,20 @@ namespace TEST_WINFORM
             this.panel_PhongChiTiet.Size = new System.Drawing.Size(927, 465);
             this.panel_PhongChiTiet.TabIndex = 3;
             // 
-            // btn_TimKiem
+            // btn_XoaNha
             // 
-            this.btn_TimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_TimKiem.FlatAppearance.BorderSize = 0;
-            this.btn_TimKiem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_TimKiem.Image = global::TEST_WINFORM.Properties.Resources._17853935111558096454_16;
-            this.btn_TimKiem.Location = new System.Drawing.Point(542, 20);
-            this.btn_TimKiem.Name = "btn_TimKiem";
-            this.btn_TimKiem.Size = new System.Drawing.Size(99, 31);
-            this.btn_TimKiem.TabIndex = 4;
-            this.btn_TimKiem.Text = "Tìm kiếm";
-            this.btn_TimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_TimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_TimKiem.UseVisualStyleBackColor = false;
+            this.btn_XoaNha.AutoSize = true;
+            this.btn_XoaNha.BackColor = System.Drawing.Color.Red;
+            this.btn_XoaNha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_XoaNha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_XoaNha.ForeColor = System.Drawing.SystemColors.Control;
+            this.btn_XoaNha.Location = new System.Drawing.Point(591, 48);
+            this.btn_XoaNha.Name = "btn_XoaNha";
+            this.btn_XoaNha.Size = new System.Drawing.Size(89, 25);
+            this.btn_XoaNha.TabIndex = 16;
+            this.btn_XoaNha.Text = "Xóa nhà";
+            this.btn_XoaNha.UseVisualStyleBackColor = false;
+            this.btn_XoaNha.Click += new System.EventHandler(this.btn_XoaNha_Click);
             // 
             // Phong
             // 
@@ -342,5 +359,6 @@ namespace TEST_WINFORM
         private System.Windows.Forms.Label lbl_PhongTrong;
         private System.Windows.Forms.ComboBox cbb_NhaTro;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_XoaNha;
     }
 }
