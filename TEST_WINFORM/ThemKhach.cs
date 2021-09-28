@@ -27,6 +27,25 @@ namespace TEST_WINFORM
             this.Visible = false;
         }
 
+        public void HienThi_TenNT()
+        {
+            QUERY_DB_QLNT.HienThiCBB("Select MaNguoiThue, TenNguoiThue from Nguoi_Thue", "MaNguoiThue", "TenNguoiThue", cbb_TenNguoiThue);
+            
+        }
 
+        private void ThemKhach_Load(object sender, EventArgs e)
+        {
+            txt_MaPhong.Text = MaPhong.ToString();
+            txt_MaPhong.Enabled = false;
+            HienThi_TenNT();
+
+        }
+
+        private void btn_ThemNguoiThueNhanh_Click(object sender, EventArgs e)
+        {
+            ThemNguoiThue TnT = new ThemNguoiThue(this);
+            TnT.Show();
+           
+        }
     }
 }

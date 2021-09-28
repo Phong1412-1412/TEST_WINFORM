@@ -13,12 +13,18 @@ namespace TEST_WINFORM
     public partial class ThemNguoiThue : Form
     {
         private readonly DanhSachKhachHang danhSachKhachHang;
+        private readonly ThemKhach ThemKhach;
         public ThemNguoiThue(DanhSachKhachHang dskh)
         {
             InitializeComponent();
             danhSachKhachHang = dskh;
         }
-      
+        
+        public ThemNguoiThue(ThemKhach Tk)
+        {
+            InitializeComponent();
+            ThemKhach = Tk;
+        }
 
         private void btn_QuyLai_Click(object sender, EventArgs e)
         {
@@ -72,6 +78,7 @@ namespace TEST_WINFORM
                 {
                     QUERY_DB_QLNT.ThemMoiNguoiThue(A);
                     danhSachKhachHang.HienThiListView();
+                    ThemKhach.HienThi_TenNT();
                     clear();
                 }
                 else

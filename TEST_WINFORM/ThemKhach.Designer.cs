@@ -189,6 +189,7 @@ namespace TEST_WINFORM
             this.btn_ThemNguoiThueNhanh.Text = "Thêm người thuê nhanh";
             this.btn_ThemNguoiThueNhanh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_ThemNguoiThueNhanh.UseVisualStyleBackColor = false;
+            this.btn_ThemNguoiThueNhanh.Click += new System.EventHandler(this.btn_ThemNguoiThueNhanh_Click);
             // 
             // cbb_TenNguoiThue
             // 
@@ -256,6 +257,7 @@ namespace TEST_WINFORM
             this.Controls.Add(this.lbl_MaPhongCT);
             this.Name = "ThemKhach";
             this.Text = "ThemKhach";
+            this.Load += new System.EventHandler(this.ThemKhach_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
