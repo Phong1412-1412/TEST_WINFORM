@@ -141,6 +141,12 @@
       <DependentUpon>Tao_PhieuDongTienPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="ThemeColor.cs" />
+    <Compile Include="ThemKhach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemKhach.Designer.cs">
+      <DependentUpon>ThemKhach.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThemNguoiThue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tao_PhieuDongTienPhong.resx">
       <DependentUpon>Tao_PhieuDongTienPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemKhach.resx">
+      <DependentUpon>ThemKhach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThemNguoiThue.resx">
       <DependentUpon>ThemNguoiThue.cs</DependentUpon>

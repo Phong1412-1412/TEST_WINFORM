@@ -547,7 +547,7 @@ namespace TEST_WINFORM
         }
         //---------------------------------END:HIỆN THỊ LIST VIEW DANH SÁCH PHÒNG---------------------
 
-        //----------------------------------THÊM/SỬA/XÓA/PHÒNG TRỌ-------------------------------------
+        //----------------------------------THÊM/SỬA/XÓA/Trả/PHÒNG TRỌ-------------------------------------
         public static void Them_Nha_tro(int MaChuTro, string DiaChi_NhaTro)
         {
             string query = "INSERT INTO Nha_Tro values(@MaChuTro, @DiaChi)";
@@ -586,7 +586,25 @@ namespace TEST_WINFORM
             }
         }
 
-        //-----------------------------END:THÊM/SỬA/XÓA/NHÀ TRỌ--------------------------------------
+        public static void TraPhongTro(int MaPhongTro)
+        {
+            string query = "EXEC dbo.TraPhong @MaPhongTro";
+            SqlConnection conn = connection();
+            SqlCommand cmd = new SqlCommand(query,conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@MaPhongTro", SqlDbType.Int).Value = MaPhongTro;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Trả phòng trọ thành công", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Trả phòng trọ thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
+            }
+        }
+
+        //-----------------------------END:THÊM/SỬA/XÓA/Trả/NHÀ TRỌ--------------------------------------
 
 
 
@@ -656,6 +674,8 @@ namespace TEST_WINFORM
             }
         }
         //------------------------------------END:TABLE Phiếu Thu-----------------------------------------
+
+
     }
 
 }

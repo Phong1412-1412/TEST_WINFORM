@@ -105,6 +105,7 @@ namespace TEST_WINFORM
                 btn_Tra.TabIndex = 8;
                 btn_Tra.Text = "Trả";
                 btn_Tra.UseVisualStyleBackColor = false;
+                btn_Tra.Click += new System.EventHandler(button_TraPhong);
                 //-------------------------------------------------------------------------------------
                 Button btn_Sua = new Button();
                 btn_Sua.AutoSize = true;
@@ -186,7 +187,7 @@ namespace TEST_WINFORM
                 }
                 QUERY_DB_QLNT.HienThiPhong_YC(qr, lbl_MaPhong, lbl_TrangThaiPhong, lbl_GiaThue, btn_Tra, btn_Sua, btn_Xem, A);
                 ARRMP[int.Parse(lbl_MaPhong.Name)] = int.Parse(lbl_MaPhong.Name);
-                btn_Tra.Click += new System.EventHandler(buttonClick);
+                
             }
            
         }
@@ -341,6 +342,27 @@ namespace TEST_WINFORM
             CTPT.Show();
         }
 
+        private void button_TraPhong(object sender, EventArgs e)
+        {
+            Button current = (Button)sender;
+            int MaPhong = int.Parse(current.Name);
+            string TTPhong = current.Text;
+            if(TTPhong == "Trả") 
+            {
+                if (MessageBox.Show("Bạn có muốn trả phòng trọ này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    QUERY_DB_QLNT.TraPhongTro(MaPhong);
+                    HienThiTatCa();
+                }
+            }
+            else
+            {
+                ThemKhach TK = new ThemKhach(this, MaPhong);
+                TK.Show();
+            }
+            
+        }
+
         private void btn_NguoiThue_Click(object sender, EventArgs e)
         {
             DanhSachKhachHang DSKH = new DanhSachKhachHang();
@@ -383,6 +405,8 @@ namespace TEST_WINFORM
                 HienThiTheoNhaTro((int)cbb_NhaTro.SelectedValue);
             }
         }
+
+       
     }
     
 }
