@@ -357,8 +357,7 @@ namespace TEST_WINFORM
                 cbb.DataSource = dt;
             }
         }
-        //--------------- lay gioi tinh
-     
+        //--------------- Hiển thị t
 
 
         //-------------------------------------THÊM/SỬU/XÓA DỮ LIỆU---------------------------------------------------------------
@@ -410,7 +409,7 @@ namespace TEST_WINFORM
         //---------------------------------//THÊM/SỬA//Xóa--------------TABLE: NGƯỜI THUÊ
         public static void ThemMoiNguoiThue(Nguoi_Thue nguoi_Thue)
         {
-            string query = "INSERT INTO nguoi_thue values (@TenNguoiThue, @SDT,@CMND,@GioiTinh,@NgaySinh,@DiacChi)";
+            string query = "INSERT INTO nguoi_thue values (@TenNguoiThue, @SDT,@CMND,@GioiTinh,@NgaySinh,@DiacChi,NULL)";
             SqlConnection conn = connection();
             SqlCommand cmd = new SqlCommand(query,conn);
             cmd.CommandType = CommandType.Text;
@@ -586,11 +585,16 @@ namespace TEST_WINFORM
             }
         }
 
+
+
+        //-----------------------------END:THÊM/SỬA/XÓA/Trả/NHÀ TRỌ-------------------------------------
+
+        //-----------------------------THÊM/SỬA/XÓA/PHÒNG TRỌ--------------------------------------
         public static void TraPhongTro(int MaPhongTro)
         {
             string query = "EXEC dbo.TraPhong @MaPhongTro";
             SqlConnection conn = connection();
-            SqlCommand cmd = new SqlCommand(query,conn);
+            SqlCommand cmd = new SqlCommand(query, conn);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@MaPhongTro", SqlDbType.Int).Value = MaPhongTro;
             try
@@ -604,10 +608,27 @@ namespace TEST_WINFORM
             }
         }
 
-        //-----------------------------END:THÊM/SỬA/XÓA/Trả/NHÀ TRỌ--------------------------------------
-
-
-
+        public static void ThemHopDong(int MaChutro,int MaPhong, int MaNguoiThue, DateTime NgayBD, DateTime NgayKT, int TienCoc)
+        {
+            string query = "INSERT INTO Hop_Dong VALUES(@MaChuTro,@MaPhong,@NgayBD,@NgayKT,@TienCoc,@MaNguoiThue)";
+            SqlCommand cmd = new SqlCommand(query, connection());
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@MaPhong", SqlDbType.Int).Value = MaPhong;
+            cmd.Parameters.Add("@MaNguoiThue", SqlDbType.Int).Value = MaNguoiThue;
+            cmd.Parameters.Add("@MaChuTro", SqlDbType.Int).Value = MaChutro;
+            cmd.Parameters.Add("@NgayBD", SqlDbType.DateTime).Value = NgayBD;
+            cmd.Parameters.Add("@NgayKT", SqlDbType.DateTime).Value = NgayKT;
+            cmd.Parameters.Add("@TienCoc", SqlDbType.Int).Value = TienCoc;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Thêm dợp đồng thành công", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Thêm hợp đồng thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
+            }
+        }
         //-----------------------------END:THÊM/SỬA/XÓA/PHÒNG TRỌ--------------------------------------
 
         //---------------------------------//THÊM/SỬA//Xóa--------------TABLE: Phiếu thu

@@ -220,7 +220,7 @@ namespace TEST_WINFORM
             ThongTinPhong(query, QUERY_DB_QLNT.TongPhongDaChoThue(), i);
         }
 
-        private void HienThiTatCa()
+        public void HienThiTatCa()
         {
             x = 40;
             y = 180;

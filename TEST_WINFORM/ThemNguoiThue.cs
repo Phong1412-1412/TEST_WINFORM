@@ -19,11 +19,13 @@ namespace TEST_WINFORM
             InitializeComponent();
             danhSachKhachHang = dskh;
         }
-        
-        public ThemNguoiThue(ThemKhach Tk)
+
+        string MAHIENTHI;
+        public ThemNguoiThue(ThemKhach Tk, String MA)
         {
             InitializeComponent();
             ThemKhach = Tk;
+            MAHIENTHI = MA;
         }
 
         private void btn_QuyLai_Click(object sender, EventArgs e)
@@ -77,8 +79,16 @@ namespace TEST_WINFORM
                 if(KiemTraThongTinNhap() == true)
                 {
                     QUERY_DB_QLNT.ThemMoiNguoiThue(A);
-                    danhSachKhachHang.HienThiListView();
-                    ThemKhach.HienThi_TenNT();
+                    if(MAHIENTHI== "THEMHOPDONG")
+                    {
+                        ThemKhach.HienThi_TenNT();
+                    }
+                    else
+                    {
+                        danhSachKhachHang.HienThiListView();
+                    }
+                    
+                    
                     clear();
                 }
                 else
