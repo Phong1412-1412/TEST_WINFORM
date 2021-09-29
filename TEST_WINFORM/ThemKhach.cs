@@ -35,7 +35,7 @@ namespace TEST_WINFORM
 
         public void HienThi_ChuTro()
         {
-            QUERY_DB_QLNT.HienThiCBB("select ct.MachuTro, ct.TenChuTro from Phong_Tro pt, Chu_Tro ct, Nha_Tro ntr where pt.MaNhaTro = ntr.MaNhaTro AND ntr.MaChuTro = ct.MaChuTro AND pt.MaPhongTro = '"+MaPhong+"'","ct.MaChuTro","ct.TenChuTro",cbb_ChuTro);
+            QUERY_DB_QLNT.HienThiCBB("select ct.MachuTro, ct.TenChuTro from Phong_Tro pt, Chu_Tro ct, Nha_Tro ntr where pt.MaNhaTro = ntr.MaNhaTro AND ntr.MaChuTro = ct.MaChuTro AND pt.MaPhongTro = '"+MaPhong+"'","MaChuTro","TenChuTro",cbb_TroCho);
         }
 
         private void ThemKhach_Load(object sender, EventArgs e)
@@ -58,13 +58,14 @@ namespace TEST_WINFORM
         {
             
             int MaPhong = int.Parse(txt_MaPhong.Text);
+            int MaChuTro = (int)cbb_TroCho.SelectedValue;
             int MaKhach = int.Parse(cbb_TenNguoiThue.SelectedValue.ToString());
             DateTime NgayBD = dateTime_NgayBD.Value;
             DateTime NgayKT = dateTime_NgayKT.Value;
             int TienCoc = int.Parse(txt_TienCoc.Text);
             if(MessageBox.Show("Bạn có muốn tạo hợp đồng này không!","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
             {
-                QUERY_DB_QLNT.ThemHopDong(MaPhong,MaKhach,NgayBD,NgayKT,TienCoc);
+                QUERY_DB_QLNT.ThemHopDong(MaChuTro,MaPhong,MaKhach,NgayBD,NgayKT,TienCoc);
                 phong.HienThiTatCa();
             }
         }

@@ -45,8 +45,7 @@ namespace TEST_WINFORM
             this.cbb_TenNguoiThue = new System.Windows.Forms.ComboBox();
             this.btn_TaoHopDong = new System.Windows.Forms.Button();
             this.btn_TaoHongDong = new System.Windows.Forms.Button();
-            this.cbb_ChuTro = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.cbb_TroCho = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label2
@@ -237,32 +236,20 @@ namespace TEST_WINFORM
             this.btn_TaoHongDong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_TaoHongDong.UseVisualStyleBackColor = false;
             // 
-            // cbb_ChuTro
+            // cbb_TroCho
             // 
-            this.cbb_ChuTro.FormattingEnabled = true;
-            this.cbb_ChuTro.Location = new System.Drawing.Point(139, 226);
-            this.cbb_ChuTro.Name = "cbb_ChuTro";
-            this.cbb_ChuTro.Size = new System.Drawing.Size(126, 21);
-            this.cbb_ChuTro.TabIndex = 56;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label6.Location = new System.Drawing.Point(10, 231);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 16);
-            this.label6.TabIndex = 55;
-            this.label6.Text = "Tên Chủ trọ:";
+            this.cbb_TroCho.FormattingEnabled = true;
+            this.cbb_TroCho.Location = new System.Drawing.Point(136, 226);
+            this.cbb_TroCho.Name = "cbb_TroCho";
+            this.cbb_TroCho.Size = new System.Drawing.Size(126, 21);
+            this.cbb_TroCho.TabIndex = 55;
             // 
             // ThemKhach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 263);
-            this.Controls.Add(this.cbb_ChuTro);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cbb_TroCho);
             this.Controls.Add(this.btn_TaoHongDong);
             this.Controls.Add(this.btn_TaoHopDong);
             this.Controls.Add(this.cbb_TenNguoiThue);
@@ -305,7 +292,6 @@ namespace TEST_WINFORM
         private System.Windows.Forms.ComboBox cbb_TenNguoiThue;
         private System.Windows.Forms.Button btn_TaoHopDong;
         private System.Windows.Forms.Button btn_TaoHongDong;
-        private System.Windows.Forms.ComboBox cbb_ChuTro;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbb_TroCho;
     }
 }
