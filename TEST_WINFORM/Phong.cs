@@ -78,6 +78,7 @@ namespace TEST_WINFORM
                 btn_ChinhSuaPhong.Text = "Chỉnh sửa";
                 btn_ChinhSuaPhong.UseVisualStyleBackColor = false;
                
+               
                 //-------------------------------------------------------------------------------------
                 Button btn_XoaPhong = new Button();
                 btn_XoaPhong.AutoSize = true;
@@ -91,7 +92,7 @@ namespace TEST_WINFORM
                 btn_XoaPhong.TabIndex = 16;
                 btn_XoaPhong.Text = "Xóa phòng";
                 btn_XoaPhong.UseVisualStyleBackColor = false;
- 
+                btn_XoaPhong.Click += new System.EventHandler(buttonXoaPhong);
                 //-------------------------------------------------------------------------------------
                 btn_Tra = new Button();
                 btn_Tra.AutoSize = true;
@@ -119,6 +120,7 @@ namespace TEST_WINFORM
                 btn_Sua.TabIndex = 10;
                 btn_Sua.Text = "Sửa";
                 btn_Sua.UseVisualStyleBackColor = false;
+                btn_Sua.Click += new System.EventHandler(buttonSuaHD);
                 //-------------------------------------------------------------------------------------
                 Button btn_Xem = new Button();
                 btn_Xem.AutoSize = true;
@@ -185,7 +187,7 @@ namespace TEST_WINFORM
                     y += KCY;
                     x = 40;
                 }
-                QUERY_DB_QLNT.HienThiPhong_YC(qr, lbl_MaPhong, lbl_TrangThaiPhong, lbl_GiaThue, btn_Tra, btn_Sua, btn_Xem, A);
+                QUERY_DB_QLNT.HienThiPhong_YC(qr, lbl_MaPhong, lbl_TrangThaiPhong, lbl_GiaThue, btn_Tra, btn_Sua, btn_Xem, btn_XoaPhong, btn_ChinhSuaPhong, A);
                 ARRMP[int.Parse(lbl_MaPhong.Name)] = int.Parse(lbl_MaPhong.Name);
                 
             }
@@ -357,10 +359,31 @@ namespace TEST_WINFORM
             }
             else
             {
-                ThemKhach TK = new ThemKhach(this, MaPhong);
+                string HienThi = "ThemHD";
+                ThemKhach TK = new ThemKhach(this, MaPhong, HienThi);
                 TK.Show();
             }
             
+        }
+
+        private void buttonSuaHD(object sender, EventArgs e) 
+        {
+            string HienThi = "SuaHD";
+            Button current = (Button)sender;
+            int MaPhong = int.Parse(current.Name);
+            ThemKhach TK = new ThemKhach(this, MaPhong, HienThi);
+            TK.Show();
+        }
+
+        private void buttonXoaPhong(object sender, EventArgs e)
+        {
+            Button current = (Button)sender;
+            int MaPhong = int.Parse(current.Name);
+            if (MessageBox.Show("Bạn có muốn xóa phòng trọ này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                QUERY_DB_QLNT.XoaPhongTro_HD(MaPhong);
+                HienThiTatCa();
+            }
         }
 
         private void btn_NguoiThue_Click(object sender, EventArgs e)

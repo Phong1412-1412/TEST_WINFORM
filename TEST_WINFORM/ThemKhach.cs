@@ -15,11 +15,13 @@ namespace TEST_WINFORM
     {
         private readonly Phong phong;
         int MaPhong;
-        public ThemKhach(Phong p, int MP)
+        string HienThi;
+        public ThemKhach(Phong p, int MP, string ht)
         {
             InitializeComponent();
             phong = p;
             MaPhong = MP;
+            HienThi = ht;
         }
 
         private void btn_QuyLai_Click(object sender, EventArgs e)
@@ -40,10 +42,26 @@ namespace TEST_WINFORM
 
         private void ThemKhach_Load(object sender, EventArgs e)
         {
+            if(HienThi =="SuaHD") 
+            {
+                lbl_HienThiHD.Text = "Chỉnh sửa hợp đồng thuê phòng";
+                btn_TaoHopDong.Text = "Xác nhận chỉnh sửa hợp đồng";
+                lbl_TenNguoiThue.Visible = false;
+                cbb_TenNguoiThue.Enabled = false;
+                btn_ThemNguoiThueNhanh.Enabled = false;
+                txt_TenNTMacDinh.Enabled = false;
+
+                QUERY_DB_QLNT.HienThiTTHD(MaPhong,txt_TenNTMacDinh,dateTime_NgayBD,dateTime_NgayKT,txt_TienCoc);
+            }
+            else
+            {
+                txt_TenNTMacDinh.Visible = false;
+            }
             txt_MaPhong.Text = MaPhong.ToString();
             txt_MaPhong.Enabled = false;
             HienThi_TenNT();
             HienThi_ChuTro();
+           
 
         }
 
@@ -56,18 +74,29 @@ namespace TEST_WINFORM
 
         private void btn_TaoHopDong_Click(object sender, EventArgs e)
         {
-            
             int MaPhong = int.Parse(txt_MaPhong.Text);
             int MaChuTro = (int)cbb_TroCho.SelectedValue;
             int MaKhach = int.Parse(cbb_TenNguoiThue.SelectedValue.ToString());
             DateTime NgayBD = dateTime_NgayBD.Value;
             DateTime NgayKT = dateTime_NgayKT.Value;
             int TienCoc = int.Parse(txt_TienCoc.Text);
-            if(MessageBox.Show("Bạn có muốn tạo hợp đồng này không!","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+            if (HienThi == "ThemHD")
             {
-                QUERY_DB_QLNT.ThemHopDong(MaChuTro,MaPhong,MaKhach,NgayBD,NgayKT,TienCoc);
-                phong.HienThiTatCa();
+                if (MessageBox.Show("Bạn có muốn tạo hợp đồng này không!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    QUERY_DB_QLNT.ThemHopDong(MaChuTro, MaPhong, MaKhach, NgayBD, NgayKT, TienCoc);
+                    phong.HienThiTatCa();
+                }
             }
+            else
+            {
+                if (MessageBox.Show("Bạn có muốn cấp nhật không!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    QUERY_DB_QLNT.CapNhatHD(MaChuTro,MaPhong,NgayBD,NgayKT,TienCoc);
+                    phong.HienThiTatCa();
+                }
+            }
+            
         }
     }
 }

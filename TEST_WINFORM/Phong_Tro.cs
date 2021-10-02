@@ -8,7 +8,7 @@ namespace TEST_WINFORM
 {
     class Phong_Tro
     {
-        public Phong_Tro(int maPhongTro, int maNhaTro, int soTang, float giaThue, float tienDatCoc, float tienDien, float tienNuoc, string trangThai, int maNguoiThu)
+        public Phong_Tro(int maPhongTro, int maNhaTro, int soTang, float giaThue, float tienDatCoc, float tienDien, float tienNuoc, string trangThai, int maNguoiThu, int maHopDong)
         {
             MaPhongTro = maPhongTro;
             MaNhaTro = maNhaTro;
@@ -19,6 +19,7 @@ namespace TEST_WINFORM
             TienNuoc = tienNuoc;
             TrangThai = trangThai;
             MaNguoiThu = maNguoiThu;
+            MaHopDong = maHopDong;
         }
 
         public Phong_Tro()
@@ -42,5 +43,7 @@ namespace TEST_WINFORM
         public float TienNuoc { get; set; }
         public string TrangThai { get; set; }
         public int MaNguoiThu { get; set; }
+
+        public int MaHopDong { get; set; }
     }
 }

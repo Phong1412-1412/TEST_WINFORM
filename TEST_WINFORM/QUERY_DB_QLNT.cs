@@ -96,13 +96,13 @@ namespace TEST_WINFORM
             return x;
         }
         //-----------------------------HÀM DÙNG ĐỂ HIỂN THỊ PHÒNG THEO YC---------------------------------------
-        public static void HienThiPhong_YC(string qr, Label MP, Label TrangThai, Label Gia, Button Tra, Button Sua, Button Xem, Panel Phong)
+        public static void HienThiPhong_YC(string qr, Label MP, Label TrangThai, Label Gia, Button Tra, Button Sua, Button Xem, Button XoaPhong, Button SuaPhong, Panel Phong)
         {
             // Kiếm tra i có vượt quá số phòng hay không nếu vượt qua thì ta gán i = 1 và gọi lại hàm(Đệ quy)
             if (i > MaPhongLN())
             {
                 i = 1;
-                HienThiPhong_YC(qr, MP, TrangThai, Gia, Tra, Sua, Xem, Phong);
+                HienThiPhong_YC(qr, MP, TrangThai, Gia, Tra, Sua, Xem,XoaPhong,SuaPhong, Phong);
             }
 
             // nếu i bé hơn tổng số phòng thì thực hiện đoạn code dưới
@@ -127,6 +127,9 @@ namespace TEST_WINFORM
                         MP.Name = dataread[0].ToString();
                         Tra.Name = dataread[0].ToString();
                         Xem.Name = dataread[0].ToString();
+                        Sua.Name = dataread[0].ToString();
+                        XoaPhong.Name = dataread[0].ToString();
+                        SuaPhong.Name = dataread[0].ToString();
                         if (tt == "Trống")
                         {
                             Sua.Visible = false;
@@ -159,7 +162,7 @@ namespace TEST_WINFORM
                     else
                     {
                         i++;
-                        HienThiPhong_YC(qr, MP, TrangThai, Gia, Tra, Sua, Xem, Phong);
+                        HienThiPhong_YC(qr, MP, TrangThai, Gia, Tra, Sua, Xem,XoaPhong,SuaPhong, Phong);
                     }
                 }
             }
@@ -192,7 +195,29 @@ namespace TEST_WINFORM
 
 
         //---------------------------------------------------------END-------------------------------------
-        //-----------------------HIỂN THỊ TỔNG SỐ LƯỢNG PHÒNG THEO ĐIỀU KIỆN--------------------------------
+
+        //----------------------------------------HIỂN THỊ TT HỢP ĐỒNG THEO MÀ PHÒNG TRỌ----------------------
+        public static void HienThiTTHD(int MP, TextBox MaNT, DateTimePicker TGV, DateTimePicker TGKT, TextBox TienCoc)
+        {
+            string query = "ExEC dbo.HienThiHD_PT @MaPhongTro";
+            SqlCommand cmd = new SqlCommand(query,connection());
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("MaPhongTro", SqlDbType.Int).Value = MP;
+            SqlDataReader read = cmd.ExecuteReader();
+            if(read.HasRows)
+            {
+                read.Read();
+
+                MaNT.Text = read[4].ToString();
+                TGV.Value = (DateTime)read[1];
+                TGKT.Value = (DateTime)read[2];
+                TienCoc.Text = read[3].ToString();
+            }    
+        } 
+
+        //--------------------------------------END:HIỂN THỊ TT HỢP ĐỒNG THEO MÀ PHÒNG TRỌ--------------------------
+
+        //-------------------------------------HIỂN THỊ TỔNG SỐ LƯỢNG PHÒNG THEO ĐIỀU KIỆN--------------------------------
         public static int TongPhongTRONG()
         {
             int x;
@@ -630,6 +655,89 @@ namespace TEST_WINFORM
             }
         }
         //-----------------------------END:THÊM/SỬA/XÓA/PHÒNG TRỌ--------------------------------------
+        public static void XoaPhongTro_HD(int MaPhongTro)
+        {
+            string query = "EXEC dbo.XoaPhongTro_HD @MaPhongTro";
+            SqlCommand cmd = new SqlCommand(query,connection());
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@MaPhongTro", SqlDbType.Int).Value = MaPhongTro;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Xóa phòng trọ thành công", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Xóa phòng trọ thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
+            }
+        }
+
+        public static void ThemPhongTro(Phong_Tro PT)
+        {
+            string query = "INSERT INTO Phong_Tro values(@MaNhaTro,@SoTang,@GiaThue,@TienDatCoc,@TienDien,@TienNuoc,@TrangThai,@MaNguoiThue,@MaHopDong)";
+            SqlCommand cmd = new SqlCommand(query, connection());
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@MaNhaTro", SqlDbType.Int).Value = PT.MaNhaTro;
+            cmd.Parameters.Add("@SoTang", SqlDbType.Int).Value = PT.SoTang;
+            cmd.Parameters.Add("@GiaThue", SqlDbType.Int).Value = PT.GiaThue;
+            cmd.Parameters.Add("@TienDatCoc", SqlDbType.Int).Value = PT.TienDatCoc;
+            cmd.Parameters.Add("@TienDien", SqlDbType.Int).Value = PT.TienDien;
+            cmd.Parameters.Add("@TienNuoc", SqlDbType.Int).Value = PT.TienNuoc;
+            cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = PT.TrangThai;
+            cmd.Parameters.Add("@MaNguoiThue", SqlDbType.Int).Value = PT.MaNguoiThu;
+            cmd.Parameters.Add("@MaHopDong", SqlDbType.Int).Value = PT.MaHopDong;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Thêm phòng trọ thành công", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Thêm phòng trọ thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
+            }
+        }
+
+        public static void CapNhatPhongTro(Phong_Tro PT)
+        {
+            string query = "UPDATE Phong_Tro set SoTang = @SoTang, GiaThue = @GiaThue, TienDatCoc = @TienDatCoc, TienDien = @TienDien, TienNuoc = @TienNuoc Where MaPhongTro = @MaPhongTro";
+            SqlCommand cmd = new SqlCommand(query, connection());
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@MaPhongTro", SqlDbType.Int).Value = PT.MaPhongTro;
+            cmd.Parameters.Add("@SoTang", SqlDbType.Int).Value = PT.SoTang;
+            cmd.Parameters.Add("@GiaThue", SqlDbType.Int).Value = PT.GiaThue;
+            cmd.Parameters.Add("@TienDatCoc", SqlDbType.Int).Value = PT.TienDatCoc;
+            cmd.Parameters.Add("@TienDien", SqlDbType.Int).Value = PT.TienDien;
+            cmd.Parameters.Add("@TienNuoc", SqlDbType.Int).Value = PT.TienNuoc;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Cập nhật phòng trọ thành công", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Cập nhật phòng trọ thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
+            }
+        }
+
+        public static void CapNhatHD(int MACT, int MAPT, DateTime TGV, DateTime TGKT, int TienCoc)
+        {
+            string query = "UPDATE Hop_Dong set ThoiGianVao = @TGV , ThoiGianKTHD = @TGKT, TienCoc = @TienCoc where MaPhongTro = @MaPhongTro";
+            SqlCommand cmd = new SqlCommand(query, connection());
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@TGV", SqlDbType.DateTime).Value = TGV;
+            cmd.Parameters.Add("@TGKT", SqlDbType.DateTime).Value = TGKT;
+            cmd.Parameters.Add("@TienCoc", SqlDbType.Int).Value = TienCoc;
+            cmd.Parameters.Add("@MaPhongTro", SqlDbType.Int).Value = MAPT;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Cập nhật phòng trọ thành công", "Thong Bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Cập nhật phòng trọ thất bại: " + ex.Message + "Thong Bao" + MessageBoxButtons.OK + MessageBoxIcon.Warning);
+            }
+        }
 
         //---------------------------------//THÊM/SỬA//Xóa--------------TABLE: Phiếu thu
 

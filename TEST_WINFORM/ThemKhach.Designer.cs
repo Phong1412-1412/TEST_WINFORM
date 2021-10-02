@@ -30,11 +30,11 @@ namespace TEST_WINFORM
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.lbl_MaPhongCT = new System.Windows.Forms.Label();
+            this.lbl_HienThiHD = new System.Windows.Forms.Label();
             this.btn_QuyLai = new System.Windows.Forms.Button();
             this.txt_MaPhong = new System.Windows.Forms.TextBox();
             this.lbl_TienDienPT = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_TenNguoiThue = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_TienCoc = new System.Windows.Forms.TextBox();
@@ -46,6 +46,8 @@ namespace TEST_WINFORM
             this.btn_TaoHopDong = new System.Windows.Forms.Button();
             this.btn_TaoHongDong = new System.Windows.Forms.Button();
             this.cbb_TroCho = new System.Windows.Forms.ComboBox();
+            this.txt_TenNTMacDinh = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -61,16 +63,16 @@ namespace TEST_WINFORM
             this.label2.Text = "_________________________________________________________________________________" +
     "_____________";
             // 
-            // lbl_MaPhongCT
+            // lbl_HienThiHD
             // 
-            this.lbl_MaPhongCT.AutoSize = true;
-            this.lbl_MaPhongCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_MaPhongCT.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lbl_MaPhongCT.Location = new System.Drawing.Point(9, 19);
-            this.lbl_MaPhongCT.Name = "lbl_MaPhongCT";
-            this.lbl_MaPhongCT.Size = new System.Drawing.Size(256, 24);
-            this.lbl_MaPhongCT.TabIndex = 13;
-            this.lbl_MaPhongCT.Text = "Tạo hợp đồng thuê phòng";
+            this.lbl_HienThiHD.AutoSize = true;
+            this.lbl_HienThiHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_HienThiHD.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lbl_HienThiHD.Location = new System.Drawing.Point(9, 19);
+            this.lbl_HienThiHD.Name = "lbl_HienThiHD";
+            this.lbl_HienThiHD.Size = new System.Drawing.Size(256, 24);
+            this.lbl_HienThiHD.TabIndex = 13;
+            this.lbl_HienThiHD.Text = "Tạo hợp đồng thuê phòng";
             // 
             // btn_QuyLai
             // 
@@ -81,7 +83,7 @@ namespace TEST_WINFORM
             this.btn_QuyLai.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_QuyLai.Image = global::TEST_WINFORM.Properties.Resources.back24x24;
             this.btn_QuyLai.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_QuyLai.Location = new System.Drawing.Point(568, 14);
+            this.btn_QuyLai.Location = new System.Drawing.Point(610, 14);
             this.btn_QuyLai.Name = "btn_QuyLai";
             this.btn_QuyLai.Size = new System.Drawing.Size(126, 39);
             this.btn_QuyLai.TabIndex = 15;
@@ -108,16 +110,16 @@ namespace TEST_WINFORM
             this.lbl_TienDienPT.TabIndex = 38;
             this.lbl_TienDienPT.Text = "Mã Phòng:";
             // 
-            // label1
+            // lbl_TenNguoiThue
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label1.Location = new System.Drawing.Point(381, 90);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 16);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Tên Người Thuê:";
+            this.lbl_TenNguoiThue.AutoSize = true;
+            this.lbl_TenNguoiThue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TenNguoiThue.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lbl_TenNguoiThue.Location = new System.Drawing.Point(402, 90);
+            this.lbl_TenNguoiThue.Name = "lbl_TenNguoiThue";
+            this.lbl_TenNguoiThue.Size = new System.Drawing.Size(123, 16);
+            this.lbl_TenNguoiThue.TabIndex = 40;
+            this.lbl_TenNguoiThue.Text = "Tên Người Thuê:";
             // 
             // label3
             // 
@@ -143,7 +145,7 @@ namespace TEST_WINFORM
             // 
             // txt_TienCoc
             // 
-            this.txt_TienCoc.Location = new System.Drawing.Point(510, 178);
+            this.txt_TienCoc.Location = new System.Drawing.Point(531, 178);
             this.txt_TienCoc.Name = "txt_TienCoc";
             this.txt_TienCoc.Size = new System.Drawing.Size(126, 20);
             this.txt_TienCoc.TabIndex = 47;
@@ -153,7 +155,7 @@ namespace TEST_WINFORM
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label5.Location = new System.Drawing.Point(381, 178);
+            this.label5.Location = new System.Drawing.Point(402, 178);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 16);
             this.label5.TabIndex = 46;
@@ -183,7 +185,7 @@ namespace TEST_WINFORM
             this.btn_ThemNguoiThueNhanh.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_ThemNguoiThueNhanh.Image = global::TEST_WINFORM.Properties.Resources.add;
             this.btn_ThemNguoiThueNhanh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ThemNguoiThueNhanh.Location = new System.Drawing.Point(510, 127);
+            this.btn_ThemNguoiThueNhanh.Location = new System.Drawing.Point(531, 127);
             this.btn_ThemNguoiThueNhanh.Name = "btn_ThemNguoiThueNhanh";
             this.btn_ThemNguoiThueNhanh.Size = new System.Drawing.Size(177, 32);
             this.btn_ThemNguoiThueNhanh.TabIndex = 51;
@@ -195,7 +197,7 @@ namespace TEST_WINFORM
             // cbb_TenNguoiThue
             // 
             this.cbb_TenNguoiThue.FormattingEnabled = true;
-            this.cbb_TenNguoiThue.Location = new System.Drawing.Point(510, 85);
+            this.cbb_TenNguoiThue.Location = new System.Drawing.Point(531, 85);
             this.cbb_TenNguoiThue.Name = "cbb_TenNguoiThue";
             this.cbb_TenNguoiThue.Size = new System.Drawing.Size(126, 21);
             this.cbb_TenNguoiThue.TabIndex = 52;
@@ -209,7 +211,7 @@ namespace TEST_WINFORM
             this.btn_TaoHopDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_TaoHopDong.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_TaoHopDong.Image = global::TEST_WINFORM.Properties.Resources.edit;
-            this.btn_TaoHopDong.Location = new System.Drawing.Point(508, 219);
+            this.btn_TaoHopDong.Location = new System.Drawing.Point(529, 219);
             this.btn_TaoHopDong.Name = "btn_TaoHopDong";
             this.btn_TaoHopDong.Size = new System.Drawing.Size(186, 32);
             this.btn_TaoHopDong.TabIndex = 53;
@@ -228,7 +230,7 @@ namespace TEST_WINFORM
             this.btn_TaoHongDong.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_TaoHongDong.Image = global::TEST_WINFORM.Properties.Resources.print;
             this.btn_TaoHongDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_TaoHongDong.Location = new System.Drawing.Point(339, 219);
+            this.btn_TaoHongDong.Location = new System.Drawing.Point(360, 219);
             this.btn_TaoHongDong.Name = "btn_TaoHongDong";
             this.btn_TaoHongDong.Size = new System.Drawing.Size(138, 32);
             this.btn_TaoHongDong.TabIndex = 54;
@@ -244,11 +246,31 @@ namespace TEST_WINFORM
             this.cbb_TroCho.Size = new System.Drawing.Size(126, 21);
             this.cbb_TroCho.TabIndex = 55;
             // 
+            // txt_TenNTMacDinh
+            // 
+            this.txt_TenNTMacDinh.Location = new System.Drawing.Point(204, 85);
+            this.txt_TenNTMacDinh.Name = "txt_TenNTMacDinh";
+            this.txt_TenNTMacDinh.Size = new System.Drawing.Size(121, 20);
+            this.txt_TenNTMacDinh.TabIndex = 56;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label6.Location = new System.Drawing.Point(10, 226);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 16);
+            this.label6.TabIndex = 57;
+            this.label6.Text = "Tên chủ trọ:";
+            // 
             // ThemKhach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(706, 263);
+            this.ClientSize = new System.Drawing.Size(748, 263);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txt_TenNTMacDinh);
             this.Controls.Add(this.cbb_TroCho);
             this.Controls.Add(this.btn_TaoHongDong);
             this.Controls.Add(this.btn_TaoHopDong);
@@ -260,12 +282,12 @@ namespace TEST_WINFORM
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_TenNguoiThue);
             this.Controls.Add(this.txt_MaPhong);
             this.Controls.Add(this.lbl_TienDienPT);
             this.Controls.Add(this.btn_QuyLai);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lbl_MaPhongCT);
+            this.Controls.Add(this.lbl_HienThiHD);
             this.Name = "ThemKhach";
             this.Text = "ThemKhach";
             this.Load += new System.EventHandler(this.ThemKhach_Load);
@@ -278,10 +300,10 @@ namespace TEST_WINFORM
 
         private System.Windows.Forms.Button btn_QuyLai;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbl_MaPhongCT;
+        private System.Windows.Forms.Label lbl_HienThiHD;
         private System.Windows.Forms.TextBox txt_MaPhong;
         private System.Windows.Forms.Label lbl_TienDienPT;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_TenNguoiThue;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_TienCoc;
@@ -293,5 +315,7 @@ namespace TEST_WINFORM
         private System.Windows.Forms.Button btn_TaoHopDong;
         private System.Windows.Forms.Button btn_TaoHongDong;
         private System.Windows.Forms.ComboBox cbb_TroCho;
+        private System.Windows.Forms.TextBox txt_TenNTMacDinh;
+        private System.Windows.Forms.Label label6;
     }
 }
