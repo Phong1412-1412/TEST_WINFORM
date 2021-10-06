@@ -130,5 +130,15 @@ namespace TEST_WINFORM
             DanhSachKhachHang DSKH = new DanhSachKhachHang();
             DSKH.Show();
         }
+
+        private void txt_ThangPT_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_TrangThaiPT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
     }
 }

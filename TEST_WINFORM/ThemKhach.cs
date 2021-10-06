@@ -84,7 +84,7 @@ namespace TEST_WINFORM
             {
                 if (MessageBox.Show("Bạn có muốn tạo hợp đồng này không!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    QUERY_DB_QLNT.ThemHopDong(MaChuTro, MaPhong, MaKhach, NgayBD, NgayKT, TienCoc);
+                    QUERY_DB_QLNT.ThemHopDong(MaChuTro, MaKhach, MaPhong, NgayBD, NgayKT, TienCoc);
                     phong.HienThiTatCa();
                 }
             }

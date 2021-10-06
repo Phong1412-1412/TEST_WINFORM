@@ -35,12 +35,13 @@ namespace TEST_WINFORM
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_MaPhongCT = new System.Windows.Forms.Label();
             this.rpv_PhieuThuTien = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dataset_Phieu_Dong_Tien_Phong = new TEST_WINFORM.dataset_Phieu_Dong_Tien_Phong();
-            this.tb_ChiTietPhieuThuTienBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tb_ChiTietPhieuThuTienTableAdapter = new TEST_WINFORM.dataset_Phieu_Dong_Tien_PhongTableAdapters.tb_ChiTietPhieuThuTienTableAdapter();
+            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PRINT_PDTP = new TEST_WINFORM.PRINT_PDTP();
+            this.DataTable1TableAdapter = new TEST_WINFORM.PRINT_PDTPTableAdapters.DataTable1TableAdapter();
+            this.tb_ChiTietPhieuThuTienTableAdapter = new TEST_WINFORM.PRINT_PDTPTableAdapters.DataTable1TableAdapter();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataset_Phieu_Dong_Tien_Phong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_ChiTietPhieuThuTienBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PRINT_PDTP)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -51,7 +52,7 @@ namespace TEST_WINFORM
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(836, 120);
+            this.panel1.Size = new System.Drawing.Size(894, 120);
             this.panel1.TabIndex = 0;
             // 
             // label2
@@ -81,25 +82,29 @@ namespace TEST_WINFORM
             // rpv_PhieuThuTien
             // 
             this.rpv_PhieuThuTien.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "rp_PhieuThu";
-            reportDataSource1.Value = this.tb_ChiTietPhieuThuTienBindingSource;
+            reportDataSource1.Name = "Data_PDTP_KT";
+            reportDataSource1.Value = this.DataTable1BindingSource;
             this.rpv_PhieuThuTien.LocalReport.DataSources.Add(reportDataSource1);
             this.rpv_PhieuThuTien.LocalReport.ReportEmbeddedResource = "TEST_WINFORM.Report_PhieuDongTienPhong.rdlc";
             this.rpv_PhieuThuTien.Location = new System.Drawing.Point(0, 120);
             this.rpv_PhieuThuTien.Name = "rpv_PhieuThuTien";
             this.rpv_PhieuThuTien.ServerReport.BearerToken = null;
-            this.rpv_PhieuThuTien.Size = new System.Drawing.Size(836, 337);
+            this.rpv_PhieuThuTien.Size = new System.Drawing.Size(894, 337);
             this.rpv_PhieuThuTien.TabIndex = 1;
             // 
-            // dataset_Phieu_Dong_Tien_Phong
+            // DataTable1BindingSource
             // 
-            this.dataset_Phieu_Dong_Tien_Phong.DataSetName = "dataset_Phieu_Dong_Tien_Phong";
-            this.dataset_Phieu_Dong_Tien_Phong.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.DataTable1BindingSource.DataMember = "DataTable1";
+            this.DataTable1BindingSource.DataSource = this.PRINT_PDTP;
             // 
-            // tb_ChiTietPhieuThuTienBindingSource
+            // PRINT_PDTP
             // 
-            this.tb_ChiTietPhieuThuTienBindingSource.DataMember = "tb_ChiTietPhieuThuTien";
-            this.tb_ChiTietPhieuThuTienBindingSource.DataSource = this.dataset_Phieu_Dong_Tien_Phong;
+            this.PRINT_PDTP.DataSetName = "PRINT_PDTP";
+            this.PRINT_PDTP.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // DataTable1TableAdapter
+            // 
+            this.DataTable1TableAdapter.ClearBeforeFill = true;
             // 
             // tb_ChiTietPhieuThuTienTableAdapter
             // 
@@ -109,7 +114,7 @@ namespace TEST_WINFORM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 457);
+            this.ClientSize = new System.Drawing.Size(894, 457);
             this.Controls.Add(this.rpv_PhieuThuTien);
             this.Controls.Add(this.panel1);
             this.Name = "Report_Phie_Thu_Tien_Phong";
@@ -117,8 +122,8 @@ namespace TEST_WINFORM
             this.Load += new System.EventHandler(this.Report_Phie_Thu_Tien_Phong_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataset_Phieu_Dong_Tien_Phong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_ChiTietPhieuThuTienBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PRINT_PDTP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -129,8 +134,9 @@ namespace TEST_WINFORM
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_MaPhongCT;
         private Microsoft.Reporting.WinForms.ReportViewer rpv_PhieuThuTien;
-        private System.Windows.Forms.BindingSource tb_ChiTietPhieuThuTienBindingSource;
-        private dataset_Phieu_Dong_Tien_Phong dataset_Phieu_Dong_Tien_Phong;
-        private dataset_Phieu_Dong_Tien_PhongTableAdapters.tb_ChiTietPhieuThuTienTableAdapter tb_ChiTietPhieuThuTienTableAdapter;
+        private PRINT_PDTPTableAdapters.DataTable1TableAdapter tb_ChiTietPhieuThuTienTableAdapter;
+        private System.Windows.Forms.BindingSource DataTable1BindingSource;
+        private PRINT_PDTP PRINT_PDTP;
+        private PRINT_PDTPTableAdapters.DataTable1TableAdapter DataTable1TableAdapter;
     }
 }

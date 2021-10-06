@@ -342,6 +342,7 @@ namespace TEST_WINFORM
             this.txt_ThangPT.Name = "txt_ThangPT";
             this.txt_ThangPT.Size = new System.Drawing.Size(106, 22);
             this.txt_ThangPT.TabIndex = 41;
+            this.txt_ThangPT.TextChanged += new System.EventHandler(this.txt_ThangPT_TextChanged);
             // 
             // label10
             // 
@@ -396,6 +397,7 @@ namespace TEST_WINFORM
             this.txt_TrangThaiPT.Name = "txt_TrangThaiPT";
             this.txt_TrangThaiPT.Size = new System.Drawing.Size(106, 22);
             this.txt_TrangThaiPT.TabIndex = 35;
+            this.txt_TrangThaiPT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_TrangThaiPT_KeyPress);
             // 
             // label15
             // 

@@ -33,5 +33,16 @@ namespace TEST_WINFORM.Properties {
                 return ((string)(this["QL_NhaTroConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-C9IT8VA3\\SQLEXPRESS;Initial Catalog=QL_NHATRO_KT;Integrated Se" +
+            "curity=True")]
+        public string QL_NHATRO_KTConnectionString {
+            get {
+                return ((string)(this["QL_NHATRO_KTConnectionString"]));
+            }
+        }
     }
 }

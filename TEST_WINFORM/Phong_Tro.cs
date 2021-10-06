@@ -8,7 +8,7 @@ namespace TEST_WINFORM
 {
     class Phong_Tro
     {
-        public Phong_Tro(int maPhongTro, int maNhaTro, int soTang, float giaThue, float tienDatCoc, float tienDien, float tienNuoc, string trangThai, int maNguoiThu, int maHopDong)
+        public Phong_Tro(int maPhongTro, int maNhaTro, int soTang, float giaThue, float tienDatCoc, float tienDien, float tienNuoc)
         {
             MaPhongTro = maPhongTro;
             MaNhaTro = maNhaTro;
@@ -17,9 +17,17 @@ namespace TEST_WINFORM
             TienDatCoc = tienDatCoc;
             TienDien = tienDien;
             TienNuoc = tienNuoc;
-            TrangThai = trangThai;
-            MaNguoiThu = maNguoiThu;
-            MaHopDong = maHopDong;
+        }
+
+        public Phong_Tro( int maNhaTro, int soTang, float giaThue, float tienDatCoc, float tienDien, float tienNuoc)
+        { 
+            MaNhaTro = maNhaTro;
+            SoTang = soTang;
+            GiaThue = giaThue;
+            TienDatCoc = tienDatCoc;
+            TienDien = tienDien;
+            TienNuoc = tienNuoc;
+ 
         }
 
         public Phong_Tro()

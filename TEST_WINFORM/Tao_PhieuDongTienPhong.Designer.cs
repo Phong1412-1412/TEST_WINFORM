@@ -200,6 +200,7 @@ namespace TEST_WINFORM
             this.txt_SoDien.TabIndex = 48;
             this.txt_SoDien.Text = "1";
             this.txt_SoDien.TextChanged += new System.EventHandler(this.txt_SoDien_TextChanged);
+            this.txt_SoDien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_SoDien_KeyPress);
             // 
             // label7
             // 
@@ -220,6 +221,7 @@ namespace TEST_WINFORM
             this.txt_KhoiNuoc.TabIndex = 50;
             this.txt_KhoiNuoc.Text = "1";
             this.txt_KhoiNuoc.TextChanged += new System.EventHandler(this.txt_KhoiNuoc_TextChanged);
+            this.txt_KhoiNuoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KhoiNuoc_KeyPress);
             // 
             // label8
             // 
@@ -276,6 +278,7 @@ namespace TEST_WINFORM
             this.txt_Thang.Name = "txt_Thang";
             this.txt_Thang.Size = new System.Drawing.Size(62, 20);
             this.txt_Thang.TabIndex = 55;
+            this.txt_Thang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Thang_KeyPress);
             // 
             // label10
             // 

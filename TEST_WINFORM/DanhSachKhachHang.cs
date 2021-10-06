@@ -174,9 +174,10 @@ namespace TEST_WINFORM
 
         }
 
+        int MaNguoiThue = 0;
         private void btn_XemPhongThue_Click(object sender, EventArgs e)
         {
-            int MaNguoiThue = int.Parse(txt_MaNguoiThue.Text);
+             MaNguoiThue = int.Parse(txt_MaNguoiThue.Text);
             if (MaNguoiThue != 0)
             {
                 int MaPhong = QUERY_DB_QLNT.LayMaPhong(MaNguoiThue);

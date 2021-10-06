@@ -55,7 +55,7 @@ namespace TEST_WINFORM
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(56, 70);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(491, 82);
             this.panel1.TabIndex = 14;
@@ -66,7 +66,7 @@ namespace TEST_WINFORM
             this.cbNha.Items.AddRange(new object[] {
             "Tất cả"});
             this.cbNha.Location = new System.Drawing.Point(61, 18);
-            this.cbNha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbNha.Margin = new System.Windows.Forms.Padding(2);
             this.cbNha.Name = "cbNha";
             this.cbNha.Size = new System.Drawing.Size(152, 21);
             this.cbNha.TabIndex = 5;
@@ -77,7 +77,7 @@ namespace TEST_WINFORM
             this.cbTrangThai.Items.AddRange(new object[] {
             "Tất cả"});
             this.cbTrangThai.Location = new System.Drawing.Point(359, 18);
-            this.cbTrangThai.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbTrangThai.Margin = new System.Windows.Forms.Padding(2);
             this.cbTrangThai.Name = "cbTrangThai";
             this.cbTrangThai.Size = new System.Drawing.Size(102, 21);
             this.cbTrangThai.TabIndex = 4;
@@ -136,17 +136,18 @@ namespace TEST_WINFORM
             // 
             this.txtNM.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNM.Location = new System.Drawing.Point(442, 268);
-            this.txtNM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNM.Margin = new System.Windows.Forms.Padding(2);
             this.txtNM.Name = "txtNM";
             this.txtNM.Size = new System.Drawing.Size(76, 20);
             this.txtNM.TabIndex = 20;
+            this.txtNM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNM_KeyPress);
             // 
             // txtNC
             // 
             this.txtNC.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNC.Enabled = false;
             this.txtNC.Location = new System.Drawing.Point(442, 193);
-            this.txtNC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNC.Margin = new System.Windows.Forms.Padding(2);
             this.txtNC.Name = "txtNC";
             this.txtNC.Size = new System.Drawing.Size(76, 20);
             this.txtNC.TabIndex = 19;
@@ -169,7 +170,7 @@ namespace TEST_WINFORM
             this.dgvPhong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPhong.Location = new System.Drawing.Point(56, 193);
-            this.dgvPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPhong.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPhong.Name = "dgvPhong";
             this.dgvPhong.RowHeadersWidth = 51;
             this.dgvPhong.RowTemplate.Height = 24;
@@ -183,7 +184,7 @@ namespace TEST_WINFORM
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(185)))), ((int)(((byte)(154)))));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button2.Location = new System.Drawing.Point(442, 310);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 26);
             this.button2.TabIndex = 17;
@@ -197,7 +198,7 @@ namespace TEST_WINFORM
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(151)))), ((int)(((byte)(31)))));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.Location = new System.Drawing.Point(416, 39);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 26);
             this.button1.TabIndex = 16;
@@ -219,7 +220,7 @@ namespace TEST_WINFORM
             this.Controls.Add(this.dgvPhong);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ChiSoNuoc";
             this.Text = "ChiSoNuoc";
             this.Load += new System.EventHandler(this.ChiSoNuoc_Load);

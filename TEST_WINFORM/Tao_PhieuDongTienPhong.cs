@@ -87,5 +87,26 @@ namespace TEST_WINFORM
                 CTPT.HienThiDS_PHieuDongTienPhong();
             }
         }
+
+        private void txt_SoDien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)8))
+
+                e.Handled = true;
+        }
+
+        private void txt_KhoiNuoc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)8))
+
+                e.Handled = true;
+        }
+
+        private void txt_Thang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)8))
+
+                e.Handled = true;
+        }
     }
 }

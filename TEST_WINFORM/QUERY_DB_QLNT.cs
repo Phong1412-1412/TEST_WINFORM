@@ -17,7 +17,7 @@ namespace TEST_WINFORM
         // Hàm kết nối CSDL
         public static SqlConnection connection()
         {
-            string strSql = @"Data Source=LAPTOP-C9IT8VA3\SQLEXPRESS;Initial Catalog=QL_NhaTro;Integrated Security=True";
+            string strSql = @"Data Source=LAPTOP-C9IT8VA3\SQLEXPRESS;Initial Catalog=QL_NHATRO_KT;Integrated Security=True";
             SqlConnection conn = new SqlConnection(strSql);
             try
             {
@@ -190,6 +190,24 @@ namespace TEST_WINFORM
                 TP.Text = dataread[5].ToString();
                 TD.Text = dataread[6].ToString();
                 TN.Text = dataread[7].ToString();
+            }
+        }
+
+        public static void HienThiPhongChinhSua( int MaPhong,  TextBox ST, TextBox TP, TextBox TC,  TextBox TD, TextBox TN)
+        {
+            string sql = "select MaNhaTro, SoTang, GiaThue, TienDatCoc, TienDien, TienNuoc from Phong_Tro where MaPhongTro = '"+MaPhong+"'";
+            SqlConnection conn = connection();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader dataread = cmd.ExecuteReader();
+            if (dataread.HasRows)
+            {
+                dataread.Read();
+                ST.Text = dataread[1].ToString();
+                TC.Text = dataread[3].ToString();
+                TP.Text = dataread[2].ToString();
+                TD.Text = dataread[4].ToString();
+                TN.Text = dataread[5].ToString();
             }
         }
 
@@ -633,9 +651,9 @@ namespace TEST_WINFORM
             }
         }
 
-        public static void ThemHopDong(int MaChutro,int MaPhong, int MaNguoiThue, DateTime NgayBD, DateTime NgayKT, int TienCoc)
+        public static void ThemHopDong(int MaChutro,int MaNguoiThue, int MaPhong, DateTime NgayBD, DateTime NgayKT, int TienCoc)
         {
-            string query = "INSERT INTO Hop_Dong VALUES(@MaChuTro,@MaPhong,@NgayBD,@NgayKT,@TienCoc,@MaNguoiThue)";
+            string query = "INSERT INTO Hop_Dong VALUES(@MaChuTro,@MaNguoiThue,@MaPhong,@NgayBD,@NgayKT,@TienCoc)";
             SqlCommand cmd = new SqlCommand(query, connection());
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@MaPhong", SqlDbType.Int).Value = MaPhong;
@@ -674,7 +692,7 @@ namespace TEST_WINFORM
 
         public static void ThemPhongTro(Phong_Tro PT)
         {
-            string query = "INSERT INTO Phong_Tro values(@MaNhaTro,@SoTang,@GiaThue,@TienDatCoc,@TienDien,@TienNuoc,@TrangThai,@MaNguoiThue,@MaHopDong)";
+            string query = "INSERT INTO Phong_Tro values(@MaNhaTro,@SoTang,@GiaThue,@TienDatCoc,@TienDien,@TienNuoc,N'Trống',NULL,NULL)";
             SqlCommand cmd = new SqlCommand(query, connection());
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@MaNhaTro", SqlDbType.Int).Value = PT.MaNhaTro;
@@ -683,9 +701,6 @@ namespace TEST_WINFORM
             cmd.Parameters.Add("@TienDatCoc", SqlDbType.Int).Value = PT.TienDatCoc;
             cmd.Parameters.Add("@TienDien", SqlDbType.Int).Value = PT.TienDien;
             cmd.Parameters.Add("@TienNuoc", SqlDbType.Int).Value = PT.TienNuoc;
-            cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = PT.TrangThai;
-            cmd.Parameters.Add("@MaNguoiThue", SqlDbType.Int).Value = PT.MaNguoiThu;
-            cmd.Parameters.Add("@MaHopDong", SqlDbType.Int).Value = PT.MaHopDong;
             try
             {
                 cmd.ExecuteNonQuery();
@@ -699,7 +714,7 @@ namespace TEST_WINFORM
 
         public static void CapNhatPhongTro(Phong_Tro PT)
         {
-            string query = "UPDATE Phong_Tro set SoTang = @SoTang, GiaThue = @GiaThue, TienDatCoc = @TienDatCoc, TienDien = @TienDien, TienNuoc = @TienNuoc Where MaPhongTro = @MaPhongTro";
+            string query = "UPDATE Phong_Tro set SoTang = @SoTang, GiaThue = @GiaThue, TienDatCoc = @TienDatCoc, TienDien = @TienDien, TienNuoc = @TienNuoc, MaNhaTro = @MaNhaTro Where MaPhongTro = @MaPhongTro";
             SqlCommand cmd = new SqlCommand(query, connection());
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@MaPhongTro", SqlDbType.Int).Value = PT.MaPhongTro;
@@ -708,6 +723,7 @@ namespace TEST_WINFORM
             cmd.Parameters.Add("@TienDatCoc", SqlDbType.Int).Value = PT.TienDatCoc;
             cmd.Parameters.Add("@TienDien", SqlDbType.Int).Value = PT.TienDien;
             cmd.Parameters.Add("@TienNuoc", SqlDbType.Int).Value = PT.TienNuoc;
+            cmd.Parameters.Add("@MaNhaTro", SqlDbType.Int).Value = PT.MaNhaTro;
             try
             {
                 cmd.ExecuteNonQuery();
@@ -747,6 +763,7 @@ namespace TEST_WINFORM
             SqlConnection conn = connection();
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.CommandType = CommandType.Text;
+            PDTP.TongTien = PDTP.TienDien + PDTP.TienNuoc + PDTP.TienPhong;
             cmd.Parameters.Add("@MaHopDong", SqlDbType.Int).Value = PDTP.MaHopDong;
             cmd.Parameters.Add("@TienDien", SqlDbType.Int).Value = PDTP.TienDien;
             cmd.Parameters.Add("@TienNuoc", SqlDbType.Float).Value = PDTP.TienNuoc;
@@ -805,6 +822,51 @@ namespace TEST_WINFORM
         //------------------------------------END:TABLE Phiếu Thu-----------------------------------------
 
 
+        //-------------------------------------BEGIN: Kiểm tra thông tin đăng nhập/ Đăng ký----------------------------
+        public static string KT_LogIn(string userName, int Pass )
+        {
+            string query = "SELECT * FROM Chu_Tro where TenChuTro = @TenChuTro AND MatKhau = @Pass";
+            SqlCommand cmd = new SqlCommand(query,connection());
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@TenChuTro", SqlDbType.NVarChar).Value = userName;
+            cmd.Parameters.Add("@Pass", SqlDbType.NVarChar).Value = Pass;
+            SqlDataAdapter apd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            apd.Fill(dt);
+            string KT="";
+            if (dt != null)
+            {
+                foreach(DataRow row in dt.Rows)
+                {
+                    KT = row["TenChuTro"].ToString();
+                }
+              
+            }
+            return KT;
+        }
+
+        public static void ĐangKy_ChuTro(string TenChuTro, string cmnd, string diachi,int pass)
+        {
+            string query = "INSERT INTO Chu_Tro values(@TenChuTro,@CMND,@DiaChi,@PASS)";
+            SqlCommand cmd = new SqlCommand(query,connection());
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@TenChuTro", SqlDbType.NVarChar).Value = TenChuTro;
+            cmd.Parameters.Add("@CMND", SqlDbType.NVarChar).Value = cmnd;
+            cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = diachi;
+            cmd.Parameters.Add("@PASS", SqlDbType.NVarChar).Value = pass;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Đăng ký thành công!","Thông báo");
+            }
+            catch
+            {
+                MessageBox.Show("Đăng ký thất bại!", "Thông báo");
+            }
+            
+        }
+
+        //-------------------------------------END: Kiểm tra thông tin đăng nhập/ Đăng ký------------------------------ 
     }
 
 }

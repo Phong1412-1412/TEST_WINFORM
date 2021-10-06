@@ -102,6 +102,7 @@ namespace TEST_WINFORM
             this.txt_GiaThue.Name = "txt_GiaThue";
             this.txt_GiaThue.Size = new System.Drawing.Size(150, 20);
             this.txt_GiaThue.TabIndex = 41;
+            this.txt_GiaThue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_GiaThue_KeyPress);
             // 
             // label6
             // 
@@ -122,6 +123,7 @@ namespace TEST_WINFORM
             this.txt_SoTang.Name = "txt_SoTang";
             this.txt_SoTang.Size = new System.Drawing.Size(150, 20);
             this.txt_SoTang.TabIndex = 39;
+            this.txt_SoTang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_SoTang_KeyPress);
             // 
             // label5
             // 
@@ -243,6 +245,7 @@ namespace TEST_WINFORM
             this.btn_XemNguoiThue.Text = "Xem người thuê";
             this.btn_XemNguoiThue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_XemNguoiThue.UseVisualStyleBackColor = false;
+            this.btn_XemNguoiThue.Click += new System.EventHandler(this.btn_XemNguoiThue_Click);
             // 
             // btn_XoaPhongTro
             // 
@@ -260,6 +263,7 @@ namespace TEST_WINFORM
             this.btn_XoaPhongTro.Text = "Xóa";
             this.btn_XoaPhongTro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_XoaPhongTro.UseVisualStyleBackColor = false;
+            this.btn_XoaPhongTro.Click += new System.EventHandler(this.btn_XoaPhongTro_Click);
             // 
             // btn_SuaPhongTro
             // 
@@ -277,6 +281,7 @@ namespace TEST_WINFORM
             this.btn_SuaPhongTro.Text = "Chỉnh sửa";
             this.btn_SuaPhongTro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_SuaPhongTro.UseVisualStyleBackColor = false;
+            this.btn_SuaPhongTro.Click += new System.EventHandler(this.btn_SuaPhongTro_Click);
             // 
             // btn_ThemPhongtro
             // 
@@ -295,6 +300,7 @@ namespace TEST_WINFORM
             this.btn_ThemPhongtro.Text = "Thêm phòng trọ";
             this.btn_ThemPhongtro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_ThemPhongtro.UseVisualStyleBackColor = false;
+            this.btn_ThemPhongtro.Click += new System.EventHandler(this.btn_ThemPhongtro_Click);
             // 
             // btn_QuyLai
             // 
@@ -341,6 +347,7 @@ namespace TEST_WINFORM
             this.txt_TienDatCoc.Name = "txt_TienDatCoc";
             this.txt_TienDatCoc.Size = new System.Drawing.Size(150, 20);
             this.txt_TienDatCoc.TabIndex = 54;
+            this.txt_TienDatCoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_TienDatCoc_KeyPress);
             // 
             // txt_TienDien
             // 
@@ -349,6 +356,7 @@ namespace TEST_WINFORM
             this.txt_TienDien.Name = "txt_TienDien";
             this.txt_TienDien.Size = new System.Drawing.Size(150, 20);
             this.txt_TienDien.TabIndex = 55;
+            this.txt_TienDien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_TienDien_KeyPress);
             // 
             // txt_TienNuoc
             // 
@@ -357,6 +365,7 @@ namespace TEST_WINFORM
             this.txt_TienNuoc.Name = "txt_TienNuoc";
             this.txt_TienNuoc.Size = new System.Drawing.Size(150, 20);
             this.txt_TienNuoc.TabIndex = 56;
+            this.txt_TienNuoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_TienNuoc_KeyPress);
             // 
             // txt_TrangThai
             // 

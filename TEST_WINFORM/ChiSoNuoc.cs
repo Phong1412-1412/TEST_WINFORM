@@ -83,5 +83,12 @@ namespace TEST_WINFORM
             LayThongTinPhong();
             txtNM.Text = "";
         }
+
+        private void txtNM_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)8))
+
+                e.Handled = true;
+        }
     }
 }

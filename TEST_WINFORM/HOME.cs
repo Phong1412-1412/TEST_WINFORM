@@ -40,7 +40,7 @@ namespace TEST_WINFORM
         //-----------------------------------------------END------------------------------------------------
         private void HOME_Load(object sender, EventArgs e)
         {
-            string qr_DongTienTre = "SELECT * " + " FROM PhieuDongTienPhong " + " WHERE TrangThai = N'Chưa Đóng'";
+            string qr_DongTienTre = "SELECT * " + " FROM PhieuDongTienPhong ";
             QUERY_DB_QLNT.HienThiDGV(qr_DongTienTre, dgvNoTien);
             string query_PPDang_Thue = "SELECT MaPhongTro as N'Mã phòng trọ', MaNhaTro as N'Mã Nhà trọ', MaNguoiThue as N'Mã người thuê', SoTang as N'Số tầng', GiaThue as N'Giá thuê', TienDatCoc as N'Tiền đặt cọc', TienDien as N'Tiền điện', TienNuoc as N'Tiền nước', TrangThai as N'Trạng thái' " +
                          " FROM Phong_Tro ";
