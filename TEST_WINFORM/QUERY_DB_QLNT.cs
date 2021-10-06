@@ -17,7 +17,7 @@ namespace TEST_WINFORM
         // Hàm kết nối CSDL
         public static SqlConnection connection()
         {
-            string strSql = @"Data Source=LAPTOP-C9IT8VA3\SQLEXPRESS;Initial Catalog=QL_NHATRO_KT;Integrated Security=True";
+            string strSql = @"Data Source= .\SQLEXPRESS;Initial Catalog=QL_NHATRO_KT;Integrated Security=True";
             SqlConnection conn = new SqlConnection(strSql);
             try
             {
